@@ -9,15 +9,11 @@
     "build:static": "next build && next export",
     "type-check": "tsc --project tsconfig.json --pretty --noEmit",
     "lint": "eslint --ext js,jsx,ts,tsx",
-    "lint:fix": "eslint --ext js,jsx,ts,tsx --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn type-check && lint-staged"
-    }
+    "lint:fix": "eslint --ext js,jsx,ts,tsx --fix",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,tsx}": [
+    "*.{ts,tsx,js,jsx}": [
       "prettier --write",
       "yarn lint:fix"
     ]
