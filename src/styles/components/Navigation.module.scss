@@ -1,0 +1,55 @@
+//
+// header nav
+//
+.l-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 50px 0 40px 0;
+  a {
+    display: block;
+  }
+  @include mqTB {
+    padding: 40px 0 20px 0;
+  }
+  @include mqSP {
+    max-width: 100%;
+    padding: 40px 0 10px 0;
+  }
+}
+.nav-list {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  li {
+    margin: 0 32px 0 0;
+    a {
+      &.is-active {
+        pointer-events: none;
+        color: #4AC0E5;
+      }
+    }
+  }
+}
+
+.nav-sns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 65px 0 0;
+  .nav-sns-facebook {
+    width: 10px;
+    height: 20px;
+    margin: 0 24px 0 0;
+  }
+  .nav-sns-twitter {
+    width: 20px;
+    height: 16px;
+  }
+  @include mqSP {
+    padding: 0 30px 0 0;
+  }
+}
+

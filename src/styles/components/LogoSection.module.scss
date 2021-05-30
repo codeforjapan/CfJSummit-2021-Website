@@ -1,0 +1,16 @@
+//
+// section ( logo area )
+//
+.l-logo {
+	max-width: 1297px;
+	margin: -160px auto 160px auto;
+	width: 100%;
+	@include mqTB {
+		width: 100%;
+		padding: 0 20px;
+	}
+	@include mqSP {
+		margin: -55px auto 70px auto;
+		padding: 0;
+	}
+}

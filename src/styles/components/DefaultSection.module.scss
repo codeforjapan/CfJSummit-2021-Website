@@ -1,0 +1,71 @@
+//
+// section
+//
+.l-section {
+	width: 750px;
+	margin: 160px auto;
+	@include mqTB {
+		width: 100%;
+		padding: 0 60px;
+	}
+	@include mqSP {
+		padding: 0 30px;
+		margin: 100px auto;
+	}
+}
+.section-heading {
+	width: 750px;
+	margin: 0 auto;
+	text-align: center;
+	font-size: 48px;
+	margin: 0 auto 90px auto;
+	font-weight: bold;
+	@include mqTB {
+		margin: 0 auto 80px auto;
+		width: 100%;
+	}
+	@include mqSP {
+		font-size: 24px;
+		margin: 0 auto 60px auto;
+	}
+
+}
+.section-heading_sub,
+.section-heading_sub_big {
+	width: 750px;
+	text-align: center;
+	font-size: 36px;
+	margin: 0 auto 50px auto;
+	font-weight: bold;
+	@include mqTB {
+		width: 100%;
+		margin: 0 auto 65px auto;
+	}
+	@include mqSP {
+		font-size: 24px;
+		margin: 0 auto 60px auto;
+	}
+}
+
+.section-heading_sub {
+	@include mqTB {
+		font-size: 24px;
+		margin: 0 auto 45px auto;
+	}
+	@include mqSP {
+		font-size: 16px;
+		margin: -20px auto 25px auto;
+	}
+}
+
+.section-text {
+	line-height: 1.5;
+	a {
+		text-decoration: underline;
+		@include mqPC {
+			&:hover {
+				text-decoration: none;
+			}
+		}
+	}
+}

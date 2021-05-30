@@ -1,54 +1,29 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+@import "mixin";
+@import "reset";
+
+img {
+  max-width: 100%;
+}
+html, body {
+  background: #18171F;
+  font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+  font-style: normal;
+  font-size: 20px;
+  color: #FFFFFF;
+  @include mqSP {
+    font-size: 16px;
+  }
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-p,
-ul[class],
-ol[class],
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd {
-  margin: 0;
-}
-
-body {
-  min-height: 100vh;
-  scroll-behavior: smooth;
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-ul[class],
-ol[class] {
-  list-style: none;
-  padding: 0;
-}
-// Classがないものに対してデフォルトのスタイルを適用
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-// articleを最適化
-article > * + * {
-  margin-top: 1em;
-}
-
-// アニメーション酔いする方向けの設定
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+a {
+  transition: all .3s ease;
+  &:hover {
+    opacity: .7;
+  }
+  @include mqSP {
+    transition: none;
+    &:hover {
+      opacity: 1;
+    }
   }
 }

@@ -1,0 +1,55 @@
+//
+// link ( button and text link )
+//
+
+.button {
+	text-align: center;
+	margin: 85px 0 0 0;
+	a {
+		background: #4AC0E5;
+		color: #FFFFFF;
+		border-radius: 30px;
+		height: 56px;
+		line-height: 56px;
+		padding: 0 30px;
+		display: inline-block;
+		text-decoration: none;
+		min-width: 288px;
+		font-size: 18px;
+	}
+	&.is-comingsoon {
+		a {
+			background: #aaa;
+			pointer-events: none;
+		}
+	}
+	@include mqSP {
+		margin: 60px 0 0 0;
+		a {
+			min-width: initial;
+			width: calc(100% - 20px);
+			font-size: 16px;
+		}
+	}
+
+}
+
+.link-text {
+	text-align: center;
+	margin: 85px 0 0 0;
+	a {
+		text-decoration: underline;
+		font-size: 36px;
+		font-weight: bold;
+		&:hover {
+			text-decoration: none;
+		}
+
+	}
+	@include mqSP {
+		margin: 60px 0 0 0;
+		a {
+			font-size: 24px;
+		}
+	}
+}

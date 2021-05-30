@@ -1,0 +1,21 @@
+//
+// footer
+//
+.l-footer {
+  background: #CACACA;
+  text-align: center;
+  margin: 160px 0 0 0;
+  padding: 40px 0 30px 0;
+  @include mqSP {
+    margin: 80px 0 0 0;
+  }
+}
+.footer-logo {
+  width: 116px;
+  margin: 0 auto 30px auto;
+}
+.footer-copy {
+  font-size: 16px;
+  color: #333333;
+  font-weight: normal;
+}
