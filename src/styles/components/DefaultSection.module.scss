@@ -1,7 +1,8 @@
+@use "../mixin" as *;
 //
 // section
 //
-.l-section {
+.lSection {
 	width: 750px;
 	margin: 160px auto;
 	@include mqTB {
@@ -13,9 +14,8 @@
 		margin: 100px auto;
 	}
 }
-.section-heading {
+.sectionHeading {
 	width: 750px;
-	margin: 0 auto;
 	text-align: center;
 	font-size: 48px;
 	margin: 0 auto 90px auto;
@@ -30,8 +30,8 @@
 	}
 
 }
-.section-heading_sub,
-.section-heading_sub_big {
+.sectionHeadingSub,
+.sectionHeadingSubBig {
 	width: 750px;
 	text-align: center;
 	font-size: 36px;
@@ -47,7 +47,7 @@
 	}
 }
 
-.section-heading_sub {
+.sectionHeadingSub {
 	@include mqTB {
 		font-size: 24px;
 		margin: 0 auto 45px auto;
@@ -58,7 +58,7 @@
 	}
 }
 
-.section-text {
+.sectionText {
 	line-height: 1.5;
 	a {
 		text-decoration: underline;

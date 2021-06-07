@@ -1,29 +1,30 @@
-.l-main {
+@use "../mixin" as *;
+.lMain {
   width: 100%; }
-  .l-main .timetableDetailWrapper {
+  .lMain .timetableDetailWrapper {
     max-width: 720px;
     width: 50%;
     margin: 152px auto 160px; }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableDetailWrapper {
+      .lMain .timetableDetailWrapper {
         width: 100%;
         padding: 0 24px;
         margin: 160px auto 160px; } }
     @media screen and (max-width: 414px) {
-      .l-main .timetableDetailWrapper {
+      .lMain .timetableDetailWrapper {
         width: 100%;
         padding: 0 16px;
         margin: 111px auto 80px; } }
-    .l-main .timetableDetailWrapper .detailTitle {
+    .lMain .timetableDetailWrapper .detailTitle {
       display: -ms-flexbox;
       display: flex;
       -ms-flex-align: center;
           align-items: center;
       margin-bottom: 32px; }
       @media screen and (max-width: 414px) {
-        .l-main .timetableDetailWrapper .detailTitle {
+        .lMain .timetableDetailWrapper .detailTitle {
           display: block; } }
-      .l-main .timetableDetailWrapper .detailTitle .track {
+      .lMain .timetableDetailWrapper .detailTitle .track {
         background-color: #ffffff;
         font-weight: bold;
         font-size: 20px;
@@ -32,33 +33,33 @@
         padding: 6px 20px;
         margin-right: 16px; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableDetailWrapper .detailTitle .track {
+          .lMain .timetableDetailWrapper .detailTitle .track {
             display: inline-block;
             margin-bottom: 16px;
             font-size: 20px;
             line-height: 23px; } }
-      .l-main .timetableDetailWrapper .detailTitle .date {
+      .lMain .timetableDetailWrapper .detailTitle .date {
         font-weight: bold;
         font-size: 24px;
         line-height: 28px;
         color: #FFFFFF; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableDetailWrapper .detailTitle .date {
+          .lMain .timetableDetailWrapper .detailTitle .date {
             font-size: 20px;
             line-height: 23px; } }
-    .l-main .timetableDetailWrapper .topicTitle {
+    .lMain .timetableDetailWrapper .topicTitle {
       font-weight: bold;
       font-size: 24px;
       line-height: 32px;
       color: #FFFFFF;
       margin-bottom: 80px; }
       @media screen and (max-width: 414px) {
-        .l-main .timetableDetailWrapper .topicTitle {
+        .lMain .timetableDetailWrapper .topicTitle {
           font-size: 20px;
           line-height: 24px; } }
-    .l-main .timetableDetailWrapper .topicDetail {
+    .lMain .timetableDetailWrapper .topicDetail {
       margin-bottom: 80px; }
-      .l-main .timetableDetailWrapper .topicDetail li {
+      .lMain .timetableDetailWrapper .topicDetail li {
         font-weight: bold;
         font-size: 24px;
         line-height: 32px;
@@ -68,10 +69,10 @@
         padding-left: 20px;
         list-style: none; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableDetailWrapper .topicDetail li {
+          .lMain .timetableDetailWrapper .topicDetail li {
             font-size: 20px;
             line-height: 32px; } }
-      .l-main .timetableDetailWrapper .topicDetail li:before {
+      .lMain .timetableDetailWrapper .topicDetail li:before {
         border-radius: 50%;
         width: 10px;
         height: 10px;
@@ -81,14 +82,14 @@
         top: 11px;
         content: "";
         background: #F3F190; }
-      .l-main .timetableDetailWrapper .topicDetail P {
+      .lMain .timetableDetailWrapper .topicDetail P {
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
         color: #FFFFFF; }
-    .l-main .timetableDetailWrapper .topicPerformer {
+    .lMain .timetableDetailWrapper .topicPerformer {
       margin-bottom: 80px; }
-      .l-main .timetableDetailWrapper .topicPerformer li {
+      .lMain .timetableDetailWrapper .topicPerformer li {
         font-weight: bold;
         font-size: 24px;
         line-height: 32px;
@@ -98,10 +99,10 @@
         padding-left: 20px;
         list-style: none; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableDetailWrapper .topicPerformer li {
+          .lMain .timetableDetailWrapper .topicPerformer li {
             font-size: 20px;
             line-height: 32px; } }
-      .l-main .timetableDetailWrapper .topicPerformer li:before {
+      .lMain .timetableDetailWrapper .topicPerformer li:before {
         border-radius: 50%;
         width: 10px;
         height: 10px;
@@ -111,63 +112,63 @@
         top: 11px;
         content: "";
         background: #F3F190; }
-      .l-main .timetableDetailWrapper .topicPerformer .flex {
+      .lMain .timetableDetailWrapper .topicPerformer .flex {
         display: -ms-flexbox;
         display: flex; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableDetailWrapper .topicPerformer .flex {
+          .lMain .timetableDetailWrapper .topicPerformer .flex {
             display: block; } }
-        .l-main .timetableDetailWrapper .topicPerformer .flex .picsContent {
+        .lMain .timetableDetailWrapper .topicPerformer .flex .picsContent {
           margin-right: 16px; }
           @media screen and (max-width: 414px) {
-            .l-main .timetableDetailWrapper .topicPerformer .flex .picsContent {
+            .lMain .timetableDetailWrapper .topicPerformer .flex .picsContent {
               margin-bottom: 32px; margin-right: 0; } }
-          .l-main .timetableDetailWrapper .topicPerformer .flex .picsContent img {
+          .lMain .timetableDetailWrapper .topicPerformer .flex .picsContent img {
             width: 240px;
             height: auto;
             margin: 0 auto 16px auto;
             background-color: #CACACA;
             margin-bottom: 16px; }
           @media screen and (max-width: 414px) {
-            .l-main .timetableDetailWrapper .topicPerformer .flex .picsContent img {
+            .lMain .timetableDetailWrapper .topicPerformer .flex .picsContent img {
               width: 100%; height: auto; } }
 
 
-          .l-main .timetableDetailWrapper .topicPerformer .flex .picsContent P {
+          .lMain .timetableDetailWrapper .topicPerformer .flex .picsContent P {
             font-weight: bold;
             font-size: 20px;
             line-height: 20px;
             color: #FFFFFF; }
-        .l-main .timetableDetailWrapper .topicPerformer .flex .textContent p {
+        .lMain .timetableDetailWrapper .topicPerformer .flex .textContent p {
           font-weight: normal;
           font-size: 16px;
           line-height: 22px;
           color: #FFFFFF;
           margin-bottom: 32px; }
-        .l-main .timetableDetailWrapper .topicPerformer .flex .textContent a {
+        .lMain .timetableDetailWrapper .topicPerformer .flex .textContent a {
           font-weight: normal;
           font-size: 16px;
           line-height: 19px;
           color: #FFFFFF; }
-    .l-main .timetableDetailWrapper .contents:last-child {
+    .lMain .timetableDetailWrapper .contents:last-child {
       margin-bottom: 0px; }
-.l-main .timetableWrapper {
+.lMain .timetableWrapper {
   width: 100%; }
 
 
 
 
-  .l-main .timetableWrapper .section-heading {
+  .lMain .timetableWrapper .section-heading {
     font-size: 48px;
     line-height: 56px;
     margin-top: 91px;
     margin-bottom: 160px; }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableWrapper .section-heading {
+      .lMain .timetableWrapper .section-heading {
         margin-top: 110px;
         margin-bottom: 72px; } }
     @media screen and (max-width: 414px) {
-      .l-main .timetableWrapper .section-heading {
+      .lMain .timetableWrapper .section-heading {
         font-size: 32px;
         line-height: 37px;
         margin-top: 111px;
@@ -175,7 +176,7 @@
 
 
 
-.l-main .timetableWrapper .section-heading {
+.lMain .timetableWrapper .section-heading {
   position: relative;
   display: flex;
   justify-content: center;
@@ -215,21 +216,21 @@
 
 
 
-  .l-main .timetableWrapper .menu_tab {
+  .lMain .timetableWrapper .menu_tab {
     display: -ms-flexbox;
     display: flex;
     margin: 0 auto;
     max-width: 1278px;
     width: 92%; }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableWrapper .menu_tab {
+      .lMain .timetableWrapper .menu_tab {
         width: 100%; } }
-    .l-main .timetableWrapper .menu_tab li {
+    .lMain .timetableWrapper .menu_tab li {
       width: 50%;
       background-color: #FFFFFF;
       border-radius: 8px 0px 0px 0px;
       border-bottom: #4AC0E5 4px solid; }
-      .l-main .timetableWrapper .menu_tab li a {
+      .lMain .timetableWrapper .menu_tab li a {
         display: block;
         padding: 17px 0px;
         text-align: center;
@@ -237,19 +238,19 @@
         color: #333333;
         font-size: 32px; }
         @media screen and (max-width: 414px) {
-          .l-main .timetableWrapper .menu_tab li a {
+          .lMain .timetableWrapper .menu_tab li a {
             padding: 12px 0px;
             font-size: 24px;
             line-height: 28px; } }
-    .l-main .timetableWrapper .menu_tab li:first-child {
+    .lMain .timetableWrapper .menu_tab li:first-child {
       box-shadow: -3px -1px 2px 0px rgba(0, 0, 0, 0.2) inset; }
-    .l-main .timetableWrapper .menu_tab li:last-child {
+    .lMain .timetableWrapper .menu_tab li:last-child {
       border-radius: 0px 8px 0px 0px;
       box-shadow: 3px -1px 2px 0px rgba(0, 0, 0, 0.2) inset; }
-    .l-main .timetableWrapper .menu_tab li.active {
+    .lMain .timetableWrapper .menu_tab li.active {
       background-color: #4AC0E5;
       box-shadow: initial; }
-  .l-main .timetableWrapper .titleContent {
+  .lMain .timetableWrapper .titleContent {
     font-weight: bold;
     font-size: 36px;
     line-height: 42px;
@@ -258,54 +259,54 @@
     margin-top: 84px;
     margin-bottom: 80px; }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableWrapper .titleContent {
+      .lMain .timetableWrapper .titleContent {
         margin-top: 80px;
         margin-bottom: 56px; } }
     @media screen and (max-width: 414px) {
-      .l-main .timetableWrapper .titleContent {
+      .lMain .timetableWrapper .titleContent {
         margin-top: 56px;
         margin-bottom: 56px; } }
-  .l-main .timetableWrapper .tabContents {
+  .lMain .timetableWrapper .tabContents {
     display: none;
     width: 100%; }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableWrapper .tabContents {
+      .lMain .timetableWrapper .tabContents {
         padding: 0px 84px; } }
     @media screen and (max-width: 414px) {
-      .l-main .timetableWrapper .tabContents {
+      .lMain .timetableWrapper .tabContents {
         padding: 0px 16px; } }
-    .l-main .timetableWrapper .tabContents .timeTable {
+    .lMain .timetableWrapper .tabContents .timeTable {
       clear: both; }
-    .l-main .timetableWrapper .tabContents .col2of4 {
+    .lMain .timetableWrapper .tabContents .col2of4 {
       width: 100%;
       float: left;
       zoom: 1; }
-    .l-main .timetableWrapper .tabContents .tableBoxPc {
+    .lMain .timetableWrapper .tabContents .tableBoxPc {
       display: block;
       margin: 0 auto;
       max-width: 1278px;
       width: 92%; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents .tableBoxPc {
+        .lMain .timetableWrapper .tabContents .tableBoxPc {
           display: none; } }
-    .l-main .timetableWrapper .tabContents .tableBoxTbSp {
+    .lMain .timetableWrapper .tabContents .tableBoxTbSp {
       width: 100%;
       display: none; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents .tableBoxTbSp {
+        .lMain .timetableWrapper .tabContents .tableBoxTbSp {
           display: block; } }
-      .l-main .timetableWrapper .tabContents .tableBoxTbSp ul {
+      .lMain .timetableWrapper .tabContents .tableBoxTbSp ul {
         margin: 0 auto 80px; }
-        .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList {
+        .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList {
           width: 15%;
           min-width: 123px;
          width: 95%;
           margin: 0 auto;
           margin-bottom: 32px; }
           @media screen and (max-width: 414px) {
-            .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList {
+            .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList {
               min-width: 104px; width: 95%; } }
-          .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a {
+          .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a {
             display: -ms-flexbox;
             display: flex;
             -ms-flex-align: center;
@@ -315,46 +316,46 @@
             line-height: 28px;
             color: #FFFFFF; }
             @media screen and (max-width: 414px) {
-              .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a {
+              .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a {
                 font-size: 20px;
                 line-height: 23px; } }
-          .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a:before {
+          .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList a:before {
             content: '';
             display: block;
             width: 15px;
             height: 20px;
             margin-right: 12px;
             background-image: url(../img/timetable/arrow.svg); }
-        .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList.active a {
+        .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList.active a {
           color: #4AC0E5; }
-        .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList.active a:before {
+        .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList.active a:before {
           content: '';
           display: block;
           width: 15px;
           height: 20px;
           margin-right: 12px;
           background-image: url(../img/timetable/arrow_active.svg); }
-        .l-main .timetableWrapper .tabContents .tableBoxTbSp ul .trackList:last-child {
+        .lMain .timetableWrapper .tabContents .tableBoxTbSp ul .trackList:last-child {
           margin-bottom: 0px; }
-    .l-main .timetableWrapper .tabContents table {
+    .lMain .timetableWrapper .tabContents table {
       width: 100%;
       table-layout: fixed;
       border-collapse: separate;
       border-spacing: 2px;
       border: none; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents table {
+        .lMain .timetableWrapper .tabContents table {
           border-spacing: 2px; } }
     @media screen and (max-width: 1024px) {
-      .l-main .timetableWrapper .tabContents tr {
+      .lMain .timetableWrapper .tabContents tr {
         margin-bottom: 64px;
         display: block; } }
-    .l-main .timetableWrapper .tabContents th, .l-main .timetableWrapper .tabContents td {
+    .lMain .timetableWrapper .tabContents th, .lMain .timetableWrapper .tabContents td {
       margin: 2px; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents th, .l-main .timetableWrapper .tabContents td {
+        .lMain .timetableWrapper .tabContents th, .lMain .timetableWrapper .tabContents td {
           display: block; width: 100%; } }
-    .l-main .timetableWrapper .tabContents th {
+    .lMain .timetableWrapper .tabContents th {
       text-align: center;
       font-weight: bold;
       font-size: 16px;
@@ -365,45 +366,45 @@
       vertical-align: top;
       padding: 12px 0px; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents th {
+        .lMain .timetableWrapper .tabContents th {
           padding: 15px 16px;
           margin-bottom: 4px; } }
-    .l-main .timetableWrapper .tabContents td {
+    .lMain .timetableWrapper .tabContents td {
       font-size: 14px;
       text-align: left;
       background: #FFFFFF;
       color: #333333; }
-      .l-main .timetableWrapper .tabContents td a {
+      .lMain .timetableWrapper .tabContents td a {
         display: block;
         padding: 4px 4px 22px 4px;
         transition: .3s;
         height: 100%; }
         @media screen and (max-width: 1024px) {
-          .l-main .timetableWrapper .tabContents td a {
+          .lMain .timetableWrapper .tabContents td a {
             padding: 8px 16px 16px 16px; } }
-      .l-main .timetableWrapper .tabContents td p {
+      .lMain .timetableWrapper .tabContents td p {
         margin-bottom: 8px; }
-      .l-main .timetableWrapper .tabContents td .time {
+      .lMain .timetableWrapper .tabContents td .time {
         font-weight: normal;
         font-size: 12px;
         line-height: 14px; }
-      .l-main .timetableWrapper .tabContents td .bold_title {
+      .lMain .timetableWrapper .tabContents td .bold_title {
         font-weight: bold;
         font-size: 14px;
         line-height: 16px; }
-      .l-main .timetableWrapper .tabContents td .detail {
+      .lMain .timetableWrapper .tabContents td .detail {
         max-height: 96px;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         overflow: hidden;
         margin-bottom: 8px; }
         @media screen and (max-width: 1024px) {
-          .l-main .timetableWrapper .tabContents td .detail {
+          .lMain .timetableWrapper .tabContents td .detail {
             max-height: 33px; } }
         @media screen and (max-width: 414px) {
-          .l-main .timetableWrapper .tabContents td .detail {
+          .lMain .timetableWrapper .tabContents td .detail {
             max-height: 49px; } }
-        .l-main .timetableWrapper .tabContents td .detail p {
+        .lMain .timetableWrapper .tabContents td .detail p {
           display: block;
           font-size: 14px;
           line-height: 16px;
@@ -412,37 +413,37 @@
           -webkit-line-clamp: 3;
           overflow: hidden; }
           @media screen and (max-width: 1024px) {
-            .l-main .timetableWrapper .tabContents td .detail p {
+            .lMain .timetableWrapper .tabContents td .detail p {
               -webkit-line-clamp: 2; } }
           @media screen and (max-width: 414px) {
-            .l-main .timetableWrapper .tabContents td .detail p {
+            .lMain .timetableWrapper .tabContents td .detail p {
               -webkit-line-clamp: 3; } }
-      .l-main .timetableWrapper .tabContents td .perforer {
+      .lMain .timetableWrapper .tabContents td .perforer {
         font-size: 12px;
         line-height: 14px; }
-    .l-main .timetableWrapper .tabContents .borderNone {
+    .lMain .timetableWrapper .tabContents .borderNone {
       border-bottom: 1px solid #2C3E5C; }
-    .l-main .timetableWrapper .tabContents .tableBox th.just {
+    .lMain .timetableWrapper .tabContents .tableBox th.just {
       padding-top: 7px;
       box-sizing: border-box;
       font-size: 16px;
       font-weight: bold;
       line-height: 1; }
-    .l-main .timetableWrapper .tabContents .color01 {
+    .lMain .timetableWrapper .tabContents .color01 {
       background: #FFFFFF; }
-    .l-main .timetableWrapper .tabContents .color02 {
+    .lMain .timetableWrapper .tabContents .color02 {
       background: #CACACA;
       padding: 4px 4px 22px 4px; }
-    .l-main .timetableWrapper .tabContents .color03 {
+    .lMain .timetableWrapper .tabContents .color03 {
       background: #aaa;
       padding: 4px 4px 22px 4px; }
       @media screen and (max-width: 1024px) {
-        .l-main .timetableWrapper .tabContents .color02,
-        .l-main .timetableWrapper .tabContents .color03 {
+        .lMain .timetableWrapper .tabContents .color02,
+        .lMain .timetableWrapper .tabContents .color03 {
           padding: 8px 16px 16px 16px; } }
-    .l-main .timetableWrapper .tabContents .blank {
+    .lMain .timetableWrapper .tabContents .blank {
       background: initial; }
-    .l-main .timetableWrapper .tabContents .times {
+    .lMain .timetableWrapper .tabContents .times {
       background: initial;
       color: #FFFFFF;
       font-weight: bold;
@@ -452,7 +453,7 @@
       max-width: 49px;
       text-align: left;
       margin-right: 8px; }
-  .l-main .timetableWrapper .tabContents.active {
+  .lMain .timetableWrapper .tabContents.active {
     display: inline-block; }
 
 

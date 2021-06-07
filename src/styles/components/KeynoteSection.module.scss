@@ -1,14 +1,15 @@
+@use "../mixin" as *;
 //
 // section ( keynote area )
 //
-.keynote-image {
+.keynoteImage {
 	margin: 0 0 50px 0;
 	@include mqSP {
 		margin: 0 0 20px 0;
 	}
 }
 
-.keynote-name {
+.keynoteName {
 	margin: 0 0 80px 0;
 	dt {
 		font-size: 36px;

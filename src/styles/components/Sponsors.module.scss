@@ -1,7 +1,8 @@
+@use "../mixin" as *;
 //
 // sponsors
 //
-.l-sponsors {
+.lSponsors {
 	background: #FFFFFF;
 	position: relative;
 	width: 900px;
@@ -9,7 +10,7 @@
 	margin: 160px auto;
 	padding: 150px 0;
 
-	.logo_small {
+	.logoSmall {
 		width: 347px;
 		height: 347px;
 		position: absolute;
@@ -20,7 +21,7 @@
 	@include mqTB {
 		width: calc(100%  - 120px);
 		margin: 250px auto 160px auto;
-		.logo_small {
+		.logoSmall {
 			width: 238px;
 			height: 238px;
 			right: -60px;
@@ -32,7 +33,7 @@
 		width: calc(100% - 30px);
 		margin: 180px auto 80px auto;
 		padding: 95px 15px 80px 15px;
-		.logo_small {
+		.logoSmall {
 			width: 104px;
 			height: 104px;
 			right: -16px;
@@ -40,8 +41,8 @@
 		}
 	}
 }
-.sponsors-heading,
-.sponsors-heading_big {
+.sponsorsHeading,
+.sponsorsHeadingBig {
 	font-size: 20px;
 	font-weight: bold;
 	text-align: center;
@@ -54,13 +55,13 @@
 		margin: 0 0 30px 0;
 	}
 }
-.sponsors-heading {
+.sponsorsHeading {
 	@include mqTB {
 		font-size: 16px;
 	}
 }
 
-.sponsors-logos {
+.sponsorsLogos {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -100,8 +101,8 @@
 	}
 }
 
-.sponsors-name,
-.sponsors-name_big {
+.sponsorsName,
+.sponsorsNameBig {
 	font-size: 36px;
 	font-weight: bold;
 	text-align: center;
@@ -119,7 +120,7 @@
 	}
 }
 
-.sponsors-name_big {
+.sponsorsNameBig {
 	@include mqTB {
 		font-size: 24px;
 	}

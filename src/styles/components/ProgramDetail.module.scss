@@ -1,4 +1,5 @@
-.l-main{
+@use "../mixin" as *;
+.lMain{
     width: 100%;
 
     .timetableDetailWrapper{

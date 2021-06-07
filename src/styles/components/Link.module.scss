@@ -1,3 +1,4 @@
+@use "../mixin" as *;
 //
 // link ( button and text link )
 //
@@ -17,7 +18,7 @@
 		min-width: 288px;
 		font-size: 18px;
 	}
-	&.is-comingsoon {
+	&.isComingsoon {
 		a {
 			background: #aaa;
 			pointer-events: none;
@@ -34,7 +35,7 @@
 
 }
 
-.link-text {
+.linkText {
 	text-align: center;
 	margin: 85px 0 0 0;
 	a {
