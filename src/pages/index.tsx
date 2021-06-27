@@ -14,17 +14,29 @@ import Accessibility from '~/components/Accessibility'
 import Contact from '~/components/Contact'
 import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer'
+import Scroll from '../styles/components/Scroll.module.scss'
 
 const Home: NextPage = () => {
   return (
     <>
-      <Navigation />
-      <Header />
+      <Head>
+        <title>Code for Japan Summit 2021</title>
+      </Head>
+      <div className={Scroll.box}>
+        <Navigation />
+        <Header />
+        <div className={Scroll.arrowWrap} aria-hidden={true}>
+          <div className={Scroll.arrowInner}>
+            <p>SCROLL DOWN</p>
+            <div className={Scroll.arrow} />
+          </div>
+        </div>
+      </div>
 
       <main className="l-main">
         <Concept />
         <Logo />
-        <Program />
+        {/*<Program />*/}
         <Ticket />
         <Slack />
         <CoC />

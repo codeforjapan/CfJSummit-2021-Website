@@ -4,16 +4,16 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 50px 0 40px 0;
+  padding: 50px 40px 40px 0;
   a {
     display: block;
   }
   @include mqTB {
-    padding: 40px 0 20px 0;
+    padding: 40px 20px 20px 0;
   }
   @include mqSP {
     max-width: 100%;
-    padding: 40px 0 10px 0;
+    padding: 40px 10px 10px 0;
   }
 }
 .navList {

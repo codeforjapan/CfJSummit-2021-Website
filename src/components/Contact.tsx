@@ -1,5 +1,6 @@
 import { VFC } from 'react'
 import styles from '~/styles/components/DefaultSection.module.scss'
+import LinkStyle from '~/styles/components/Link.module.scss'
 
 const Contact = () => {
   return (

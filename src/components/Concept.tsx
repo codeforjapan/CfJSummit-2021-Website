@@ -1,5 +1,6 @@
 import { VFC } from 'react'
 import styles from '~/styles/components/DefaultSection.module.scss'
+import conceptStyles from '~/styles/components/Concept.module.scss'
 
 const Concept: VFC = () => {
   return (
@@ -7,21 +8,24 @@ const Concept: VFC = () => {
       <h2 className={styles.sectionHeading}>CONCEPT</h2>
       <h3 className={styles.sectionHeadingSubBig}>ともに考え、ともにつくる</h3>
       <p className={styles.sectionText}>
-        SNSを見ると、世の中は不満で溢れています。
-        <br />
-        確かに、社会の課題は大きく、一人の力では弱いかもしれません。しかし、誰かが動きはじめることで兆しが見え、人々がつながり、大きなうねりになり、社会を変えていくことができます。
-        <br />
-        <br />
-        国内にも、海外にも、テクノロジーで社会課題を解決しようとしている多くの仲間たちがいます。
-        <br />
-        <br />
-        Code for Japan
-        Summitは、年に一度のシビックテックの祭典。他の地域の活動を知り、仲間とつながり、次の一歩を踏み出すためのイベントです。
-        <br />
-        <br />
-        今年のテーマは「Re:DESIGN」
-        <br />
-        世界が大きく変わっていく今だからこそ、少し立ち止まって一緒に未来を考えてみましょう。
+        <div className={conceptStyles.TextBlock}>
+          <p>東日本大震災から10年。</p>
+          <p>自分に何ができるのか、テクノロジーで何かできるのか。</p>
+          <p>必死に考え、手を動かしたあの時に日本のシビックテックは生まれました。</p>
+        </div>
+        <div className={conceptStyles.TextBlock}>
+          <p>地震、台風、そして、新型コロナウイルス。</p>
+          <p>危機が訪れるたびに、私たちの仲間は増えています。</p>
+        </div>
+        <div className={conceptStyles.TextBlock}>
+          <p>Code for Japan Summitは、年に一度のシビックテックの祭典。</p>
+          <p>他の地域の活動を知り、仲間とつながり、次の一歩を踏み出すためのイベントです。</p>
+        </div>
+        <div>
+          <p>今年のテーマは「Rebirth（再生）」</p>
+          <p>シビックテックにとって節目となるイベントを、東北の仲間とともに開催します。</p>
+          <p>新しいシビックテックの芽を育てるために、一緒に未来を考えてみましょう。</p>
+        </div>
       </p>
     </section>
   )

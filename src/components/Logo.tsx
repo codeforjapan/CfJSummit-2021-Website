@@ -1,12 +1,12 @@
 import { VFC } from 'react'
 import styles from '~/styles/components/LogoSection.module.scss'
+import Image from 'next/image'
+import LogoPNG from '~/assets/cfj-summit-2021_logo_rectangle--white.png'
 
 const Logo: VFC = () => {
   return (
     <section className={styles.lLogo}>
-      <h1>
-        <img src="./assets/img/2020/logo.png" alt="Re:Design" />
-      </h1>
+      <Image src={LogoPNG} layout={'intrinsic'} alt={'rebirth'} />
     </section>
   )
 }

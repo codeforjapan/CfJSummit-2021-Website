@@ -1,6 +1,7 @@
 import { VFC } from 'react'
 import styles from '~/styles/components/DefaultSection.module.scss'
 import linkStyles from '~/styles/components/Link.module.scss'
+import classNames from 'classnames'
 
 const Accessibility: VFC = () => {
   return (
@@ -11,10 +12,8 @@ const Accessibility: VFC = () => {
         <br />
         その他、特別な配慮が必要な方はお申し出ください。
       </p>
-      <p className={linkStyles.button}>
-        <a href="https://udtalk.jp/cfjs2020/" target="_blank" rel="noreferrer">
-          UDトークアプリページへ
-        </a>
+      <p className={classNames(linkStyles.button, linkStyles.isComingsoon)}>
+        <a>Coming soon</a>
       </p>
     </section>
   )

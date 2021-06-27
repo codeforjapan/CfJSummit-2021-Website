@@ -4,14 +4,14 @@
 //
 .lSection {
 	width: 750px;
-	margin: 160px auto;
+	margin: 70px auto;
 	@include mqTB {
 		width: 100%;
 		padding: 0 60px;
 	}
 	@include mqSP {
 		padding: 0 30px;
-		margin: 100px auto;
+		margin: 50px auto;
 	}
 }
 .sectionHeading {
@@ -61,6 +61,7 @@
 .sectionText {
 	line-height: 1.5;
 	a {
+		color: white;
 		text-decoration: underline;
 		@include mqPC {
 			&:hover {

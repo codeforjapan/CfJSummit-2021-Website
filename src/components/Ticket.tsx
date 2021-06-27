@@ -10,8 +10,8 @@ const Ticket: VFC = () => {
         イベント参加費は基本無料ですが、参加にはPeatixでのチケット入手が必要です。詳細はチケット販売ページをご覧ください。
       </p>
       <p className={linkStyles.button}>
-        <a href="https://cfj-summit2020.peatix.com" target="_blank" rel="noreferrer">
-          Peatixチケット購入ページへ
+        <a href="https://cfj-summit2021.peatix.com/" target="_blank" rel="noreferrer noopener">
+          Peatixへ
         </a>
       </p>
     </section>
