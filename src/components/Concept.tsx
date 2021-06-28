@@ -7,7 +7,7 @@ const Concept: VFC = () => {
     <section className={styles.lSection}>
       <h2 className={styles.sectionHeading}>CONCEPT</h2>
       <h3 className={styles.sectionHeadingSubBig}>ともに考え、ともにつくる</h3>
-      <p className={styles.sectionText}>
+      <div className={styles.sectionText}>
         <div className={conceptStyles.TextBlock}>
           <p>東日本大震災から10年。</p>
           <p>自分に何ができるのか、テクノロジーで何かできるのか。</p>
@@ -26,7 +26,7 @@ const Concept: VFC = () => {
           <p>シビックテックにとって節目となるイベントを、東北の仲間とともに開催します。</p>
           <p>新しいシビックテックの芽を育てるために、一緒に未来を考えてみましょう。</p>
         </div>
-      </p>
+      </div>
     </section>
   )
 }

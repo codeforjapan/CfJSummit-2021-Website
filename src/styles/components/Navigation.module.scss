@@ -39,13 +39,21 @@
   align-items: center;
   padding: 0 65px 0 0;
   .navSnsFacebook {
-    width: 10px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 0 24px 0 0;
+    a {
+      width: 25px;
+      height: 25px;
+    }
   }
   .navSnsTwitter {
-    width: 20px;
-    height: 16px;
+    width: 25px;
+    height: 25px;
+    a {
+      width: 25px;
+      height: 25px;
+    }
   }
   @include mqSP {
     padding: 0 30px 0 0;

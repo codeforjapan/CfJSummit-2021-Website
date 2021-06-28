@@ -13,7 +13,7 @@ const Accessibility: VFC = () => {
         その他、特別な配慮が必要な方はお申し出ください。
       </p>
       <p className={classNames(linkStyles.button, linkStyles.isComingsoon)}>
-        <a>Coming soon</a>
+        <a href="">Coming soon</a>
       </p>
     </section>
   )

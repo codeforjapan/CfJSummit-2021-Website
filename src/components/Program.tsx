@@ -10,18 +10,18 @@ const Program: VFC = () => {
       <h2 className={styles.sectionHeading}>PROGRAM</h2>
       <h3 className={styles.sectionHeadingSub}>KEY NOTES</h3>
       <div>
-        <p className={keynoteStyles.keynoteImage}>
+        <div className={keynoteStyles.keynoteImage}>
           <img src="./assets/img/2020/keynote1.jpg" alt="台湾デジタル担当大臣 唐鳳氏" />
-        </p>
+        </div>
         <dl className={keynoteStyles.keynoteName}>
           <dt>唐鳳氏</dt>
           <dd>台湾デジタル担当大臣</dd>
         </dl>
       </div>
       <div>
-        <p className={keynoteStyles.keynoteImage}>
+        <div className={keynoteStyles.keynoteImage}>
           <img src="./assets/img/2020/keynote2.jpg" alt="慶応義塾大学医学部教授 宮田 裕章氏" />
-        </p>
+        </div>
         <dl className={keynoteStyles.keynoteName}>
           <dt>宮田 裕章氏</dt>
           <dd>慶応義塾大学医学部教授</dd>
