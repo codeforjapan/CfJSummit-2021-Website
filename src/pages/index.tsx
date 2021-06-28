@@ -15,13 +15,12 @@ import Contact from '~/components/Contact'
 import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer'
 import Scroll from '../styles/components/Scroll.module.scss'
+import MetaHead from '~/components/MetaHead'
 
 const Home: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Code for Japan Summit 2021</title>
-      </Head>
+      <MetaHead isTop />
       <div className={Scroll.box}>
         <Navigation />
         <Header />

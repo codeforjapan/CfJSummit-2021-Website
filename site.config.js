@@ -10,24 +10,28 @@
  * @type {import("src/types/site.config.d.ts")}
  */
 const SiteConfig = {
-  domain: '2021.c4j.jp',
+  domain: 'summit2021.code4japan.org',
   meta: {
     noindex: true,
     facebook: {
       appID: '',
     },
     twitter: {
-      siteUsername: '',
-      creatorUsername: '',
+      siteUsername: '@codeforjapan',
+      creatorUsername: '@codeforjapan',
     },
   },
   locales: [
     {
       langName: 'ja',
       timeZone: 'Asia/Tokyo',
-      siteDescription: 'サイトのインデックに使用する説明文です',
-      siteName: 'サイト名です',
-      siteKeyWord: 'サイトきーわーど',
+      siteDescription:
+        '東日本大震災から10年。' +
+        '自分に何ができるのか、テクノロジーで何かできるのか。' +
+        '必死に考え、手を動かしたあの時に日本のシビックテックは生まれました。',
+      siteName: 'Code for Japan Summit 2021',
+      siteKeyWord:
+        'Summit, Code for Japan, CfJ, 2021 Summit, Code for Japan Summit, シビックテック, コードフォージャパン ',
     },
   ],
 }
