@@ -24,9 +24,15 @@
   h1 {
     margin: 0 0 25px;
   }
+  h2 {
+    font-size: 34px;
+  }
   @include mqTB {
     h1 {
       margin: 0 0 40px 0;
+    }
+    h2 {
+      font-size: 28px;
     }
     p {
       font-size: 24px;
@@ -36,6 +42,9 @@
     font-size: 24px;
     h1 {
       margin: 0 0 15px 0;
+    }
+    h2 {
+      font-size: 26px;
     }
     p {
       font-size: 20px;
