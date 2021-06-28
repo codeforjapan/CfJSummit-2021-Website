@@ -10,7 +10,7 @@ const Header: VFC = () => {
       </div>*/}
       <section className={styles.headerTitle}>
         <h1>Code for Japan Summit</h1>
-        <h2>2020.9.18(sat.)-19(sun.)</h2>
+        <h2>2021.9.18(sat.)-19(sun.)</h2>
         <p>@オンライン開催</p>
       </section>
     </header>
