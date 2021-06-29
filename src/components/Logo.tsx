@@ -6,7 +6,7 @@ import LogoPNG from '~/assets/cfj-summit-2021_logo_rectangle-white.png'
 const Logo: VFC = () => {
   return (
     <section className={styles.lLogo}>
-      <Image src={LogoPNG} layout={'intrinsic'} alt={'rebirth'} />
+      <Image src={LogoPNG} layout={'intrinsic'} alt={'Code for Japan Summit 2021 Rebirth Logo'} />
     </section>
   )
 }
