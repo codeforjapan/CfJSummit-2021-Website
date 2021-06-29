@@ -13,7 +13,7 @@ const Slack: VFC = () => {
         <a
           href="https://join.slack.com/t/cfj/shared_invite/zt-473qa2x1-Fc_Uo76uPPRm2j~JBWRx1w"
           target="_blank"
-          rel="noreferrer"
+          rel="noreferrer noopener"
         >
           Slackへ
         </a>

@@ -10,7 +10,11 @@ const CoC = () => {
         コミュニティでは行動規範を定めています。同意した上でご参加ください。
       </p>
       <p className={linkStyles.button}>
-        <a href="https://github.com/codeforjapan/codeofconduct" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/codeforjapan/codeofconduct"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           詳しく読む
         </a>
       </p>
