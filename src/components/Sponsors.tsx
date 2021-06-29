@@ -32,6 +32,9 @@ const Sponsors = () => {
       <h2 className={styles.sponsorsHeading}>共催</h2>
       <ul className={styles.sponsorsLogos}>
         <li>
+          <Image src={CfShiogama} layout={'intrinsic'} alt="Code for Shiogama" />
+        </li>
+        <li>
           <Image src={CfAizu} layout={'intrinsic'} alt="Code for Aizu" />
         </li>
         <li>
@@ -45,9 +48,6 @@ const Sponsors = () => {
         </li>
         <li>
           <Image src={CfSendai} layout={'intrinsic'} alt="Code for Sendai" />
-        </li>
-        <li>
-          <Image src={CfShiogama} layout={'intrinsic'} alt="Code for Shiogama" />
         </li>
       </ul>
       {/*
