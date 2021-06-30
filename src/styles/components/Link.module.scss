@@ -7,8 +7,8 @@
 	text-align: center;
 	margin: 85px 0 0 0;
 	a {
-		background: #4AC0E5;
-		color: #FFFFFF;
+		background: #E19821;
+		color: #18171F;
 		border-radius: 30px;
 		height: 56px;
 		line-height: 56px;
@@ -21,6 +21,7 @@
 	&.isComingsoon {
 		a {
 			background: #aaa;
+			color: #FFFFFF;
 			pointer-events: none;
 		}
 	}
