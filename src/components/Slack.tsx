@@ -7,7 +7,7 @@ const Slack: VFC = () => {
     <section className={styles.lSection}>
       <h2 className={styles.sectionHeading}>SLACK</h2>
       <p className={styles.sectionText}>
-        イベント当日の登壇者への質疑応答や参加者同士の交流は、Code for JapanのSlackでおこないます。
+        イベント当日の案内などは、Code for JapanのSlackでおこないます。
       </p>
       <p className={linkStyles.button}>
         <a
