@@ -6,6 +6,7 @@ import CfIwate from '~/assets/co-sp/CfIwate.png'
 import CfSendai from '~/assets/co-sp/CfSendai.gif'
 import CfShiogama from '~/assets/co-sp/CfShiogama.jpeg'
 import CfJLogo from '~/assets/CfJLogo.png'
+import RemoLogo from '~/assets/co/Remo.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -23,6 +24,12 @@ const Sponsors = () => {
       <h2 className={styles.sponsorsHeading}>メディアパートナー</h2>
       <ul className={styles.sponsorsLogos}></ul>
       */}
+      <h2 className={styles.sponsorsHeading}>協力</h2>
+      <ul className={styles.sponsorsLogos}>
+        <li>
+          <Image src={RemoLogo} layout={'intrinsic'} alt="Code for Japan" />
+        </li>
+      </ul>
       <h2 className={styles.sponsorsHeading}>主催</h2>
       <ul className={styles.sponsorsLogos}>
         <li>
