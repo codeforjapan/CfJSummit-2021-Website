@@ -8,6 +8,7 @@ const Program: VFC = () => {
   return (
     <section className={styles.lSection}>
       <h2 className={styles.sectionHeading}>PROGRAM</h2>
+      {/*
       <h3 className={styles.sectionHeadingSub}>KEY NOTES</h3>
       <div>
         <div className={keynoteStyles.keynoteImage}>
@@ -32,6 +33,16 @@ const Program: VFC = () => {
       </p>
       <p className={classNames(linkStyles.button, linkStyles.isComingsoon)}>
         <a href="">Coming soon</a>
+      </p>
+      */}
+      <h3 className={styles.sectionHeadingSub}>ENTRY</h3>
+      <p className={styles.sectionText}>
+        プレゼンテーションやパネルディスカッションへの応募を受付中です。
+      </p>
+      <p className={linkStyles.button}>
+        <a href="https://forms.gle/S8DfdxhMrVgrh8Vk7" target={'_blank'} rel={'noreferrer noopener'}>
+          Entryフォームへ
+        </a>
       </p>
     </section>
   )

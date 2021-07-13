@@ -14,6 +14,7 @@ import Contact from '~/components/Contact'
 import Sponsors from '~/components/Sponsors'
 import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
+import Program from '~/components/Program'
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +26,7 @@ const Home: NextPage = () => {
       <main className="l-main">
         <Concept />
         <Logo />
-        {/*<Program />*/}
+        <Program />
         <Ticket />
         <Slack />
         <CoC />
