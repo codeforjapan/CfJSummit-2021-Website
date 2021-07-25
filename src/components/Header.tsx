@@ -3,17 +3,16 @@ import { VFC } from 'react'
 
 const Header: VFC = () => {
   return (
-    <header>
-      {/*
+    <section>
       <div className={styles.headerMovie}>
-        <video src="./assets/movie/wave.mp4" playsInline muted autoPlay></video>
-      </div>*/}
+        <video src="./hero.mp4" playsInline muted autoPlay />
+      </div>
       <section className={styles.headerTitle}>
         <h1>Code for Japan Summit</h1>
         <h2>2021.9.18(sat.)-19(sun.)</h2>
         <p>@オンライン開催</p>
       </section>
-    </header>
+    </section>
   )
 }
 
