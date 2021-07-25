@@ -11,19 +11,18 @@ const Programs: NextPage = () => {
   return (
     <>
       <MetaHead isTop />
-      <Navigation />
-      <Header />
+      <Navigation nowPage={'Programs'} />
       <div className={styles.timetableWrapper}>
         <h2 className={styles.sectionHeading}>PROGRAM</h2>
         <ul className={styles.menuTab}>
           <li className={styles.active}>
             <Link href={'day1'}>
-              <a className={styles.tab}>10.17(sat.)</a>
+              <a>10.17(sat.)</a>
             </Link>
           </li>
           <li>
             <Link href={'day2'}>
-              <a className={styles.tab}>10.18(sun.)</a>
+              <a>10.18(sun.)</a>
             </Link>
           </li>
         </ul>
@@ -36,7 +35,7 @@ const Programs: NextPage = () => {
               <table>
                 <tbody>
                   <tr>
-                    <td className={styles.times}></td>
+                    <td className={styles.times} />
                     <th className={styles.color01}>MAIN</th>
                     <th className={styles.color01}>TRACK1</th>
                     <th className={styles.color01}>TRACK2</th>
@@ -57,7 +56,7 @@ const Programs: NextPage = () => {
                         <p className={styles.boldTitle}>オープニング</p>
                       </a>
                     </td>
-                    <td className={styles.blank} colSpan={7} rowSpan={2}></td>
+                    <td className={styles.blank} colSpan={7} rowSpan={2} />
                   </tr>
                   <tr>
                     <td className={styles.color01}>
@@ -524,10 +523,10 @@ const Programs: NextPage = () => {
                         <p className={styles.boldTitle}>クロージング</p>
                       </a>
                     </td>
-                    <td className={styles.blank} colSpan={7} rowSpan={2}></td>
+                    <td className={styles.blank} colSpan={7} rowSpan={2} />
                   </tr>
                   <tr>
-                    <td className={classNames(styles.times, styles.last_time)} rowSpan={1}>
+                    <td className={styles.times} rowSpan={1}>
                       18:00
                     </td>
                     <td>

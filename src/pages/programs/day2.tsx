@@ -1,6 +1,5 @@
 import Navigation from '~/components/Navigation'
 import { NextPage } from 'next'
-import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
 import styles from '../../styles/Programs.module.scss'
@@ -11,19 +10,18 @@ const Programs: NextPage = () => {
   return (
     <>
       <MetaHead isTop />
-      <Navigation />
-      <Header />
+      <Navigation nowPage={'Programs'} />
       <div className={styles.timetableWrapper}>
         <h2 className={styles.sectionHeading}>PROGRAM</h2>
         <ul className={styles.menuTab}>
           <li>
             <Link href={'day1'}>
-              <a className={styles.tab}>10.17(sat.)</a>
+              <a>10.17(sat.)</a>
             </Link>
           </li>
           <li className={styles.active}>
             <Link href={'day2'}>
-              <a className={styles.tab}>10.18(sun.)</a>
+              <a>10.18(sun.)</a>
             </Link>
           </li>
         </ul>
@@ -216,7 +214,7 @@ const Programs: NextPage = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td className={styles.blank} rowSpan={2}></td>
+                    <td className={styles.blank} rowSpan={2} />
                     <td className={styles.color02}>
                       <p className={styles.time}>15:20-15:30</p>
                       <p className={styles.boldTitle}>休憩</p>
@@ -319,10 +317,10 @@ const Programs: NextPage = () => {
                         <p className={styles.boldTitle}>アンカンファレンス</p>
                       </a>
                     </td>
-                    <td className={styles.blank} colSpan={5} rowSpan={2}></td>
+                    <td className={styles.blank} colSpan={5} rowSpan={2} />
                   </tr>
                   <tr>
-                    <td className={classNames(styles.times, styles.lastTime)} rowSpan={1}>
+                    <td className={styles.times} rowSpan={1}>
                       18:00
                     </td>
                     <td>

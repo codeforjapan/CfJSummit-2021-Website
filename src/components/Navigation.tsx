@@ -1,22 +1,27 @@
 import { VFC } from 'react'
 import Link from 'next/link'
 import styles from '~/styles/components/Navigation.module.scss'
+import dayjs from 'dayjs'
 
-const Navigation: VFC = () => {
+type Props = {
+  nowPage: 'Home' | 'Programs'
+}
+
+const Navigation: VFC<Props> = ({ nowPage }) => {
   return (
     <nav className={styles.lNav}>
-      {/*
       <ul className={styles.navList}>
         <li>
           <Link href={'/'}>
-            <a className={styles.isActive}>HOME</a>
+            <a className={nowPage === 'Home' ? styles.isActive : undefined}>HOME</a>
           </Link>
         </li>
         <li>
-          <a href="">PROGRAM</a>
+          <Link href={dayjs().isBefore(dayjs('2021/09/19')) ? '/programs/day1' : '/programs/day2'}>
+            <a className={nowPage === 'Programs' ? styles.isActive : undefined}>PROGRAM</a>
+          </Link>
         </li>
       </ul>
-      */}
       <ul className={styles.navSns}>
         <li className={styles.navSnsFacebook}>
           <a href="https://www.facebook.com/code4japan" target="_blank" rel="noreferrer noopener">

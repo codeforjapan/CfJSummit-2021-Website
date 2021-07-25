@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <>
       <MetaHead isTop />
-      <Navigation />
+      <Navigation nowPage={'Home'} />
       <Header />
 
       <Concept />

@@ -205,7 +205,6 @@
     justify-content: center;
     align-items: center;
     width: auto;
-    padding: 0 0 0 137px;
     @include prPC {
       margin-top: 110px;
       margin-bottom: 72px;
@@ -253,7 +252,6 @@
   }
 
   .menuTab {
-    display: -ms-flexbox;
     display: flex;
     margin: 0 auto;
     max-width: 1278px;
@@ -502,7 +500,7 @@
         }
       }
 
-      .perforer {
+      .performer {
         font-size: 12px;
         line-height: 14px;
       }
