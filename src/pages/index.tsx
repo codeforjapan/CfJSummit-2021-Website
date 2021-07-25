@@ -1,6 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.scss'
 import Navigation from '~/components/Navigation'
 import { NextPage } from 'next'
 import Header from '~/components/Header'
@@ -23,17 +20,15 @@ const Home: NextPage = () => {
       <Navigation />
       <Header />
 
-      <main className="l-main">
-        <Concept />
-        <Logo />
-        <Program />
-        <Ticket />
-        <Slack />
-        <CoC />
-        <Accessibility />
-        <Contact />
-        <Sponsors />
-      </main>
+      <Concept />
+      <Logo />
+      <Program />
+      <Ticket />
+      <Slack />
+      <CoC />
+      <Accessibility />
+      <Contact />
+      <Sponsors />
       <Footer />
     </>
   )

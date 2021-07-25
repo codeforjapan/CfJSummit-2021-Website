@@ -1,0 +1,577 @@
+@use "mixin" as *;
+
+.timetableDetailWrapper {
+  max-width: 720px;
+  width: 50%;
+  margin: 152px auto 160px;
+  @include prTB {
+    width: 100%;
+    padding: 0 24px;
+    margin: 160px auto 160px;
+  }
+
+  @include prSP {
+    width: 100%;
+    padding: 0 16px;
+    margin: 111px auto 80px;
+  }
+
+  .detailTitle {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    margin-bottom: 32px;
+    @include prSP {
+      display: block;
+    }
+
+    .track {
+      background-color: #ffffff;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 28px;
+      color: #333333;
+      padding: 6px 20px;
+      margin-right: 16px;
+      @include prSP {
+        display: inline-block;
+        margin-bottom: 16px;
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+
+    .date {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 28px;
+      color: #FFFFFF;
+      @include prSP {
+        font-size: 20px;
+        line-height: 23px;
+      }
+    }
+  }
+
+  .topicTitle {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    margin-bottom: 80px;
+    @include prSP {
+      font-size: 20px;
+      line-height: 24px;
+
+    }
+  }
+
+  .topicDetail {
+    margin-bottom: 80px;
+
+    li {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 20px;
+      list-style: none;
+      @include prSP {
+        font-size: 20px;
+        line-height: 32px;
+      }
+
+      &:before {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 11px;
+        content: "";
+        background: #F3F190;
+      }
+    }
+
+    p {
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      color: #FFFFFF;
+
+    }
+  }
+
+  .topicPerformer {
+    margin-bottom: 80px;
+
+    li {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      position: relative;
+      padding-left: 20px;
+      list-style: none;
+      @include prSP {
+        font-size: 20px;
+        line-height: 32px;
+      }
+
+      &:before {
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 11px;
+        content: "";
+        background: #F3F190;
+      }
+    }
+
+    .flex {
+      display: flex;
+      @include prSP {
+        display: block;
+      }
+
+      .picsContent {
+        margin-right: 16px;
+        @include prSP {
+          margin-bottom: 32px;
+          margin-right: 0;
+        }
+
+        img {
+          width: 240px;
+          height: auto;
+          margin: 0 auto 16px auto;
+          background-color: #CACACA;
+          @include prSP {
+            width: 100%;
+            height: auto;
+          }
+        }
+
+        p {
+          font-weight: bold;
+          font-size: 20px;
+          line-height: 20px;
+          color: #FFFFFF;
+        }
+      }
+
+      .textContent {
+        p {
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 22px;
+          color: #FFFFFF;
+          margin-bottom: 32px;
+        }
+
+        a {
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 19px;
+          color: #FFFFFF;
+        }
+      }
+    }
+  }
+
+  .contents:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timetableWrapper {
+  width: 100%;
+
+  .sectionHeading {
+    font-size: 48px;
+    line-height: 56px;
+    margin-top: 91px;
+    margin-bottom: 160px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    padding: 0 0 0 137px;
+    @include prPC {
+      margin-top: 110px;
+      margin-bottom: 72px;
+    }
+    @include prSP {
+      font-size: 32px;
+      line-height: 37px;
+      margin-top: 111px;
+      margin-bottom: 114px;
+    }
+  }
+
+  .heading-lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    margin: 0 0 0 24px;
+
+    li {
+      &:after {
+        content: "|";
+        padding: 0 10px;
+      }
+
+      a.is-active {
+        color: #4AC0E5;
+        pointer-events: none;
+      }
+
+      &:last-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include prSP {
+    display: block;
+    padding: 0;
+    .heading-lang {
+      margin: 0;
+    }
+  }
+
+  .menuTab {
+    display: -ms-flexbox;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1278px;
+    width: 92%;
+    @include prPC {
+      width: 100%;
+    }
+
+    li {
+      width: 50%;
+      background-color: #FFFFFF;
+      border-radius: 8px 0 0 0;
+      border-bottom: #4AC0E5 4px solid;
+
+      a {
+        display: block;
+        padding: 17px 0;
+        text-align: center;
+        font-weight: bold;
+        color: #333333;
+        font-size: 32px;
+        @include prSP {
+          padding: 12px 0;
+          font-size: 24px;
+          line-height: 28px;
+        }
+      }
+
+      &:first-child {
+        box-shadow: -3px -1px 2px 0px rgba(0, 0, 0, 0.2) inset;
+      }
+
+      &:last-child {
+        border-radius: 0px 8px 0px 0px;
+        box-shadow: 3px -1px 2px 0px rgba(0, 0, 0, 0.2) inset;
+      }
+
+      &.active {
+        background-color: #4AC0E5;
+        box-shadow: initial;
+      }
+    }
+  }
+
+  .titleContent {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-top: 84px;
+    margin-bottom: 80px;
+    @include prPC {
+      margin-top: 80px;
+      margin-bottom: 56px;
+    }
+    @include prSP {
+      margin-top: 56px;
+      margin-bottom: 56px;
+    }
+  }
+
+  .tabContents {
+    display: none;
+    width: 100%;
+    @include prPC {
+      padding: 0px 84px;
+    }
+    @include prSP {
+      padding: 0px 16px;
+    }
+
+    .timeTable {
+      clear: both;
+    }
+
+    .col2of4 {
+      width: 100%;
+      float: left;
+      zoom: 1;
+    }
+
+    .tableBoxPc {
+      display: block;
+      margin: 0 auto;
+      max-width: 1278px;
+      width: 92%;
+      @include prPC {
+        display: none;
+      }
+    }
+
+    .tableBoxTbSp {
+      width: 100%;
+      display: none;
+      @include prPC {
+        display: block;
+      }
+
+      ul {
+        margin: 0 auto 80px;
+
+        .trackList {
+          min-width: 123px;
+          width: 95%;
+          margin: 0 auto 32px;
+          @include prSP {
+            min-width: 104px;
+            width: 95%;
+          }
+
+          a {
+            display: flex;
+            -ms-flex-align: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 28px;
+            color: #FFFFFF;
+            @include prSP {
+              font-size: 20px;
+              line-height: 23px;
+            }
+
+            &:before {
+              content: '';
+              display: block;
+              width: 15px;
+              height: 20px;
+              margin-right: 12px;
+              background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2215%22%20height%3D%2220%22%20viewBox%3D%220%200%2015%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0.536%2019.8866C0.697765%2019.9708%200.879391%2020.0093%201.06138%2019.998C1.24337%2019.9867%201.41886%2019.9261%201.569%2019.8226L14.569%2010.8226C14.7018%2010.7306%2014.8104%2010.6078%2014.8854%2010.4646C14.9603%2010.3214%2014.9995%2010.1622%2014.9995%2010.0006C14.9995%209.83903%2014.9603%209.67984%2014.8854%209.53668C14.8104%209.39352%2014.7018%209.27067%2014.569%209.17864L1.569%200.178639C1.41897%200.0748319%201.24341%200.0140443%201.06131%200.00285833C0.879219%20-0.00832766%200.697533%200.0305143%200.53593%200.115178C0.374326%200.199843%200.238963%200.327103%200.144497%200.483179C0.0500308%200.639256%206.15833e-05%200.818201%201.35831e-08%201.00064V19.0006C-3.00674e-05%2019.1832%200.0499031%2019.3622%200.144387%2019.5184C0.238871%2019.6746%200.374302%2019.8019%200.536%2019.8866Z%22%20fill%3D%22%23FFFFFF%22%2F%3E%3C%2Fsvg%3E');
+            }
+          }
+
+          &.active a {
+            color: #4AC0E5;
+
+            &:before {
+              content: '';
+              display: block;
+              width: 15px;
+              height: 20px;
+              margin-right: 12px;
+              background-image: url('data:image/svg+xml;charset=utf8,%3Csvg%20width%3D%2215%22%20height%3D%2220%22%20viewBox%3D%220%200%2015%2020%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M0.536%2019.8866C0.697765%2019.9708%200.879391%2020.0093%201.06138%2019.998C1.24337%2019.9867%201.41886%2019.9261%201.569%2019.8226L14.569%2010.8226C14.7018%2010.7306%2014.8104%2010.6078%2014.8854%2010.4646C14.9603%2010.3214%2014.9995%2010.1622%2014.9995%2010.0006C14.9995%209.83903%2014.9603%209.67984%2014.8854%209.53668C14.8104%209.39352%2014.7018%209.27067%2014.569%209.17864L1.569%200.178639C1.41897%200.0748319%201.24341%200.0140443%201.06131%200.00285833C0.879219%20-0.00832766%200.697533%200.0305143%200.53593%200.115178C0.374326%200.199843%200.238963%200.327103%200.144497%200.483179C0.0500308%200.639256%206.15833e-05%200.818201%201.35831e-08%201.00064V19.0006C-3.00674e-05%2019.1832%200.0499031%2019.3622%200.144387%2019.5184C0.238871%2019.6746%200.374302%2019.8019%200.536%2019.8866Z%22%20fill%3D%22%234AC0E5%22%2F%3E%3C%2Fsvg%3E');
+            }
+          }
+
+          &:last-child {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+
+    table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: separate;
+      border-spacing: 2px;
+      border: none;
+      @include prPC {
+        border-spacing: 2px;
+      }
+    }
+
+    tr {
+      @include prPC {
+        margin-bottom: 64px;
+        display: block;
+      }
+    }
+
+    th {
+      margin: 2px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 19px;
+      color: #333333;
+      background-color: #2C3E5C;
+      vertical-align: top;
+      padding: 12px 0;
+      @include prPC {
+        display: block;
+        width: 100%;
+        padding: 15px 16px;
+        margin-bottom: 4px;
+      }
+    }
+
+    td {
+      margin: 2px;
+      font-size: 14px;
+      text-align: left;
+      background: #FFFFFF;
+      color: #333333;
+      @include prPC {
+        display: block;
+        width: 100%;
+      }
+
+      a {
+        display: block;
+        padding: 4px 4px 22px 4px;
+        transition: .3s;
+        height: 100%;
+        @include prPC {
+          padding: 8px 16px 16px 16px;
+        }
+      }
+
+      p {
+        margin-bottom: 8px;
+      }
+
+      .time {
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 14px;
+      }
+
+      .boldTitle {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+      }
+
+      .detail {
+        max-height: 96px;
+        display: -webkit-box;
+        overflow: hidden;
+        margin-bottom: 8px;
+        @include prPC {
+          max-height: 33px;
+        }
+        @include prSP {
+          max-height: 49px;
+        }
+
+        p {
+          display: block;
+          font-size: 14px;
+          line-height: 16px;
+          margin-bottom: 0;
+          overflow: hidden;
+        }
+      }
+
+      .perforer {
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+
+    .borderNone {
+      border-bottom: 1px solid #2C3E5C;
+    }
+
+    .tableBox th.just {
+      padding-top: 7px;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .color01 {
+      background: #FFFFFF;
+    }
+
+    .color02 {
+      background: #CACACA;
+      padding: 4px 4px 22px 4px;
+      @include prPC {
+        padding: 8px 16px 16px 16px;
+      }
+    }
+
+    .color03 {
+      background: #aaa;
+      padding: 4px 4px 22px 4px;
+      @include prPC {
+        padding: 8px 16px 16px 16px;
+      }
+    }
+
+    .blank {
+      background: initial;
+    }
+
+    .times {
+      vertical-align: top;
+      background: initial;
+      color: #FFFFFF;
+      font-weight: bold;
+      font-size: 14px;
+      line-height: 16px;
+      width: 3.8%;
+      max-width: 49px;
+      text-align: left;
+      margin-right: 8px;
+    }
+
+    &.active {
+      display: inline-block;
+    }
+  }
+}
+
+.link_back {
+  font-size: 16px;
+  font-weight: bold;
+
+  a {
+    i {
+      position: relative;
+      top: 2px;
+      margin: 0 13px 0 0;
+    }
+  }
+}
