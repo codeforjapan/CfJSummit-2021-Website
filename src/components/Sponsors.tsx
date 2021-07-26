@@ -5,6 +5,7 @@ import CfFukushima from '~/assets/co-sp/CfFukushima.png'
 import CfIwate from '~/assets/co-sp/CfIwate.png'
 import CfSendai from '~/assets/co-sp/CfSendai.gif'
 import CfShiogama from '~/assets/co-sp/CfShiogama.jpeg'
+import CfYamagata from '~/assets/co-sp/CfYamagata.jpg'
 import CfJLogo from '~/assets/CfJLogo.png'
 import RemoLogo from '~/assets/co/Remo.png'
 import Image from 'next/image'
@@ -55,6 +56,9 @@ const Sponsors = () => {
         </li>
         <li>
           <Image src={CfSendai} layout={'intrinsic'} alt="Code for Sendai" />
+        </li>
+        <li>
+          <Image src={CfYamagata} layout={'intrinsic'} alt="Code for Yamagata" />
         </li>
       </ul>
       {/*
