@@ -8,8 +8,7 @@ const Header: VFC = () => {
         <video src="./hero.mp4" playsInline muted autoPlay />
       </div>
       <section className={styles.headerTitle}>
-        <h1>Code for Japan Summit</h1>
-        <h2>2021.9.18(sat.)-19(sun.)</h2>
+        <h2>2021.9.18(土)-19(日)</h2>
         <p>@オンライン開催</p>
       </section>
     </section>
