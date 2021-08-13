@@ -1,13 +1,130 @@
 import Navigation from '~/components/Navigation'
 import { NextPage } from 'next'
-import Header from '~/components/Header'
 import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
 import styles from '../../styles/Programs.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
 
-const Programs: NextPage = () => {
+type ProgramData = {
+  title: string
+  startTime: string
+  endTime: string
+  category: number
+  description: string
+  presenters: string[]
+  programId: string
+}
+
+type TrackData = {
+  trackName: string
+  programs: ProgramData[]
+}
+
+type Props = {
+  Tracks: string[]
+  pcTimeTable: [string, ...ProgramData[]][]
+  spTimeTable: TrackData[]
+}
+type prog = ProgramData & { trackNum: number }
+
+export const getStaticProps = () => {
+  const Data = {
+    data: [
+      {
+        trackName: 'トラック0',
+        programs: [
+          {
+            title: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvv',
+            startTime: '13:00',
+            endTime: '13:25',
+            category: 1,
+            description: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
+            presenters: [],
+            programId: 'b8864c129a84482191080cb7a573ad07',
+          },
+          {
+            title: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvv',
+            startTime: '13:25',
+            endTime: '14:15',
+            category: 1,
+            description: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
+            presenters: [],
+            programId: 'b8864c129a84482191080cb7a573ad09',
+          },
+        ],
+      },
+      {
+        trackName: 'トラック1',
+        programs: [
+          {
+            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            startTime: '14:30',
+            endTime: '15:20',
+            category: 1,
+            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            presenters: ['test'],
+            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
+          },
+          {
+            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            startTime: '15:30',
+            endTime: '16:20',
+            category: 1,
+            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            presenters: ['test'],
+            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
+          },
+          {
+            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            startTime: '16:30',
+            endTime: '17:20',
+            category: 1,
+            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            presenters: ['test'],
+            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
+          },
+        ],
+      },
+    ],
+    result: '1',
+    timestamp: '2021-08-09T03:15:09.2164445Z',
+  }
+
+  const programs: prog[] = []
+  const StartTimeList: string[] = []
+  const Tracks: string[] = []
+  Data.data.forEach((track, index) => {
+    track.programs.forEach((program) => {
+      StartTimeList.push(program.startTime)
+      programs.push({ ...program, trackNum: index })
+    })
+    Tracks.push(track.trackName)
+  })
+  // @ts-ignore
+  const StartTimes = [...new Set(StartTimeList)]
+  const pcTimeTable = StartTimes.map((startTime) => {
+    const filterProgram = programs.filter((value) => {
+      return value.startTime === startTime
+    })
+    let data = new Array(Tracks.length)
+    data[0] = startTime
+    filterProgram.forEach((value) => {
+      const { trackNum, ...v } = value
+      data[trackNum + 1] = v
+    })
+    return data
+  })
+  return {
+    props: {
+      Tracks,
+      pcTimeTable,
+      spTimeTable: Data.data,
+    },
+  }
+}
+
+const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) => {
   return (
     <>
       <MetaHead isTop />
@@ -36,997 +153,100 @@ const Programs: NextPage = () => {
                 <tbody>
                   <tr>
                     <td className={styles.times} />
-                    <th className={styles.color01}>MAIN</th>
-                    <th className={styles.color01}>TRACK1</th>
-                    <th className={styles.color01}>TRACK2</th>
-                    <th className={styles.color01}>TRACK3</th>
-                    <th className={styles.color01}>TRACK4</th>
-                    <th className={styles.color01}>TRACK5</th>
-                    <th className={styles.color01}>TRACK6</th>
-                    <th className={styles.color01}>TRACK7</th>
+                    {Tracks.map((value) => {
+                      return (
+                        <th className={styles.color01} key={value}>
+                          {value}
+                        </th>
+                      )
+                    })}
                   </tr>
-
-                  <tr>
-                    <td className={styles.times} rowSpan={3}>
-                      13:00
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>13:00-13:10</p>
-                        <p className={styles.boldTitle}>オープニング</p>
-                      </a>
-                    </td>
-                    <td className={styles.blank} colSpan={7} rowSpan={2} />
-                  </tr>
-                  <tr>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>13:10-13:50</p>
-                        <p className={styles.boldTitle}>KEYNOTE</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.color02} colSpan={8}>
-                      <p className={styles.time}>13:50-14:00</p>
-                      <p className={styles.boldTitle}>全体休憩</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={2}>
-                      14:00
-                    </td>
-                    <td rowSpan={4}>
-                      <a href="">
-                        <p className={styles.time}>14:00-16:00</p>
-                        <p className={styles.boldTitle}>
-                          シビックパワー
-                          <br />
-                          バトル全国大会
-                        </p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={2}>
-                      15:00
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={2}>
-                      16:00
-                    </td>
-                    <td className={styles.blank} rowSpan={3}></td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={2}>
-                      17:00
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.color02} colSpan={8}>
-                      <p className={styles.time}>17:50-18:00</p>
-                      <p className={styles.boldTitle}>全体休憩</p>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={1}>
-                      18:00
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>18:00-18:30</p>
-                        <p className={styles.boldTitle}>クロージング</p>
-                      </a>
-                    </td>
-                    <td className={styles.blank} colSpan={7} rowSpan={2} />
-                  </tr>
-                  <tr>
-                    <td className={styles.times} rowSpan={1}>
-                      18:00
-                    </td>
-                    <td>
-                      <a href="">
-                        <p className={styles.time}>18:30-20:30</p>
-                        <p className={styles.boldTitle}>オンライン交流会</p>
-                      </a>
-                    </td>
-                  </tr>
+                  {pcTimeTable.map((tt) => {
+                    return (
+                      <tr key={tt[0]}>
+                        {tt.map((value) => {
+                          if (typeof value === 'string') {
+                            return <td className={styles.times}>{value}</td>
+                          } else if (value) {
+                            return (
+                              <td className={styles.color01}>
+                                <Link href={`/programs/${value.programId}`}>
+                                  <a>
+                                    <p className={styles.time}>
+                                      {value.startTime}-{value.endTime}
+                                    </p>
+                                    <p className={styles.boldTitle}>{value.title}</p>
+                                    <div className={styles.detail}>
+                                      <p>{value.description}</p>
+                                    </div>
+                                    {value.presenters.map((value) => {
+                                      return (
+                                        <p key={value} className={styles.performer}>
+                                          {value}
+                                        </p>
+                                      )
+                                    })}
+                                  </a>
+                                </Link>
+                              </td>
+                            )
+                          } else {
+                            return <td className={styles.blank} />
+                          }
+                        })}
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
             <div className={styles.tableBoxTbSp}>
               <ul>
-                <li className={styles.trackList}>
-                  <a href="#main_1">MAIN</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track1_1">TRACK1</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track2_1">TRACK2</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track3_1">TRACK3</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track4_1">TRACK4</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track5_1">TRACK5</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track6_1">TRACK6</a>
-                </li>
-                <li className={styles.trackList}>
-                  <a href="#track7_1">TRACK7</a>
-                </li>
+                {Tracks.map((value) => {
+                  return (
+                    <li className={styles.trackList} key={value}>
+                      <Link href={`#${value}`}>
+                        <a>{value}</a>
+                      </Link>
+                    </li>
+                  )
+                })}
               </ul>
               <table>
                 <tbody>
-                  <tr id="main_1">
-                    <th className={classNames(styles.color01, styles.track)}>MAIN</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>13:00-13:10</p>
-                        <p className={styles.boldTitle}>オープニング</p>
-                      </a>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>13:00-13:10</p>
-                        <p className={styles.boldTitle}>オープニング</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>13:50-14:00</p>
-                      <p className={styles.boldTitle}>全体休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-16:00</p>
-                        <p className={styles.boldTitle}>シビックパワーバトル全国大会</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>17:50-18:00</p>
-                      <p className={styles.boldTitle}>全体休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>18:00-18:30</p>
-                        <p className={styles.boldTitle}>クロージング</p>
-                      </a>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>18:30-20:30</p>
-                        <p className={styles.boldTitle}>オンライン交流会</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track1_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK1</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track2_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK2</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track3_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK3</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track4_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK4</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track5_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK5</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track6_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK6</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
-                  <tr id="track7_1">
-                    <th className={classNames(styles.color01, styles.track)}>TRACK7</th>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>14:00-14:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>14:50-15:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>15:00-15:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>15:50-16:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>16:00-16:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                    <td className={styles.color02}>
-                      <p className={styles.time}>16:50-17:00</p>
-                      <p className={styles.boldTitle}>休憩</p>
-                    </td>
-                    <td className={styles.color01}>
-                      <a href="">
-                        <p className={styles.time}>17:00-17:50</p>
-                        <div className={styles.detail}>
-                          <p>
-                            タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。タイトルが入ります。
-                          </p>
-                        </div>
-                        <p className={styles.performer}>高度 太郎</p>
-                      </a>
-                    </td>
-                  </tr>
+                  {spTimeTable.map((value) => {
+                    return (
+                      <tr id={value.trackName} key={value.trackName}>
+                        <th className={classNames(styles.color01, styles.track)}>
+                          {value.trackName}
+                        </th>
+                        {value.programs.map((value) => {
+                          return (
+                            <td className={styles.color01} key={value.programId}>
+                              <Link href={`/programs/${value.programId}`}>
+                                <a>
+                                  <p className={styles.time}>
+                                    {value.startTime}-{value.endTime}
+                                  </p>
+                                  <p className={styles.boldTitle}>{value.title}</p>
+                                  <div className={styles.detail}>
+                                    <p>{value.description}</p>
+                                  </div>
+                                  {value.presenters.map((value) => {
+                                    return (
+                                      <p key={value} className={styles.performer}>
+                                        {value}
+                                      </p>
+                                    )
+                                  })}
+                                </a>
+                              </Link>
+                            </td>
+                          )
+                        })}
+                      </tr>
+                    )
+                  })}
                 </tbody>
               </table>
             </div>
