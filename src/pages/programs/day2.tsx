@@ -23,13 +23,27 @@ type TrackData = {
 
 type Props = {
   Tracks: string[]
-  pcTimeTable: [string, ...ProgramData[]][]
+  pcTimeTable: [string, ...(ProgramData | number)[]][]
   spTimeTable: TrackData[]
 }
 type prog = ProgramData & { trackNum: number }
 
-export const getStaticProps = () => {
-  const Data = {
+type ResponseType = {
+  data: TrackData[]
+  result: string
+  timestamp: string
+}
+
+export const getStaticProps = async () => {
+  const response = await fetch(
+    'https://webapi20210430062843.azurewebsites.net/api/listprogramforweb?lang=ja&date=2',
+    {
+      headers: {
+        Authorization: process.env.API_KEY ? process.env.API_KEY : 'APIKEY is Required',
+      },
+    }
+  )
+  /*const Data = {
     data: [
       {
         trackName: 'トラック0',
@@ -89,8 +103,8 @@ export const getStaticProps = () => {
     ],
     result: '1',
     timestamp: '2021-08-09T03:15:09.2164445Z',
-  }
-
+  }*/
+  const Data = (await response.json()) as ResponseType
   const programs: prog[] = []
   const StartTimeList: string[] = []
   const Tracks: string[] = []
@@ -102,12 +116,15 @@ export const getStaticProps = () => {
     Tracks.push(track.trackName)
   })
   // @ts-ignore
-  const StartTimes = [...new Set(StartTimeList)]
+  const StartTimes = [...new Set(StartTimeList)].sort((a, b) => a.localeCompare(b))
   const pcTimeTable = StartTimes.map((startTime) => {
     const filterProgram = programs.filter((value) => {
       return value.startTime === startTime
     })
-    let data = new Array(Tracks.length)
+    let data: (string | ProgramData | number)[] = Array.apply(null, new Array(Tracks.length)).map(
+      Number.prototype.valueOf,
+      0
+    )
     data[0] = startTime
     filterProgram.forEach((value) => {
       const { trackNum, ...v } = value
@@ -115,6 +132,7 @@ export const getStaticProps = () => {
     })
     return data
   })
+  console.log(pcTimeTable)
   return {
     props: {
       Tracks,
@@ -133,12 +151,12 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
         <h2 className={styles.sectionHeading}>PROGRAM</h2>
         <ul className={styles.menuTab}>
           <li>
-            <Link href={'day1'}>
+            <Link href={'/programs/day1'}>
               <a>10.17(sat.)</a>
             </Link>
           </li>
           <li className={styles.active}>
-            <Link href={'day2'}>
+            <Link href={'/programs/day2'}>
               <a>10.18(sun.)</a>
             </Link>
           </li>
@@ -166,32 +184,59 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                       <tr key={tt[0]}>
                         {tt.map((value) => {
                           if (typeof value === 'string') {
-                            return <td className={styles.times}>{value}</td>
-                          } else if (value) {
                             return (
-                              <td className={styles.color01}>
-                                <Link href={`/programs/${value.programId}`}>
-                                  <a>
-                                    <p className={styles.time}>
-                                      {value.startTime}-{value.endTime}
-                                    </p>
-                                    <p className={styles.boldTitle}>{value.title}</p>
-                                    <div className={styles.detail}>
-                                      <p>{value.description}</p>
-                                    </div>
-                                    {value.presenters.map((value) => {
-                                      return (
-                                        <p key={value} className={styles.performer}>
-                                          {value}
-                                        </p>
-                                      )
-                                    })}
-                                  </a>
-                                </Link>
+                              <td key={Math.random()} className={styles.times}>
+                                {value}
                               </td>
                             )
+                          } else if (typeof value === 'number') {
+                            return <td key={Math.random()} className={styles.blank} />
+                          } else if (value) {
+                            if (value.category === 4) {
+                              return (
+                                <td key={Math.random()} className={styles.color02}>
+                                  <p className={styles.time}>
+                                    {value.startTime}-{value.endTime}
+                                  </p>
+                                  <p className={styles.boldTitle}>{value.title}</p>
+                                  <div className={styles.detail}>
+                                    <p>{value.description}</p>
+                                  </div>
+                                  {value.presenters.map((value) => {
+                                    return (
+                                      <p key={value} className={styles.performer}>
+                                        {value}
+                                      </p>
+                                    )
+                                  })}
+                                </td>
+                              )
+                            } else {
+                              return (
+                                <td key={Math.random()} className={styles.color01}>
+                                  <Link href={`/programs/${value.programId}`}>
+                                    <a>
+                                      <p className={styles.time}>
+                                        {value.startTime}-{value.endTime}
+                                      </p>
+                                      <p className={styles.boldTitle}>{value.title}</p>
+                                      <div className={styles.detail}>
+                                        <p>{value.description}</p>
+                                      </div>
+                                      {value.presenters.map((value) => {
+                                        return (
+                                          <p key={value} className={styles.performer}>
+                                            {value}
+                                          </p>
+                                        )
+                                      })}
+                                    </a>
+                                  </Link>
+                                </td>
+                              )
+                            }
                           } else {
-                            return <td className={styles.blank} />
+                            return <td key={Math.random()} className={styles.blank} />
                           }
                         })}
                       </tr>
