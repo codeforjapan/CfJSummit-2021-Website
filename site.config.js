@@ -12,7 +12,7 @@
 const SiteConfig = {
   domain: 'summit2021.code4japan.org',
   meta: {
-    noindex: true,
+    noindex: false,
     facebook: {
       appID: '',
     },
