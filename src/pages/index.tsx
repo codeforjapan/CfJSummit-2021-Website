@@ -32,15 +32,17 @@ const Home: NextPage = () => {
         </div>
       </div>
 
-      <Concept />
-      <Logo />
-      <Program />
-      <Ticket />
-      <Slack />
-      <CoC />
-      <Accessibility />
-      <Contact />
-      <Sponsors />
+      <main className="l-main">
+        <Concept />
+        <Logo />
+        <Program />
+        <Ticket />
+        <Slack />
+        <CoC />
+        <Accessibility />
+        <Contact />
+        <Sponsors />
+      </main>
       <Footer />
     </>
   )
