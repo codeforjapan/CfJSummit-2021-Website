@@ -44,67 +44,6 @@ export const getStaticProps = async () => {
       },
     }
   )
-  /*const Data = {
-    data: [
-      {
-        trackName: 'トラック0',
-        programs: [
-          {
-            title: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-            startTime: '13:00',
-            endTime: '13:25',
-            category: 1,
-            description: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-            presenters: [],
-            programId: 'b8864c129a84482191080cb7a573ad07',
-          },
-          {
-            title: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-            startTime: '13:25',
-            endTime: '14:15',
-            category: 1,
-            description: 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv',
-            presenters: [],
-            programId: 'b8864c129a84482191080cb7a573ad09',
-          },
-        ],
-      },
-      {
-        trackName: 'トラック1',
-        programs: [
-          {
-            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            startTime: '14:30',
-            endTime: '15:20',
-            category: 1,
-            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            presenters: ['test'],
-            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
-          },
-          {
-            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            startTime: '15:30',
-            endTime: '16:20',
-            category: 1,
-            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            presenters: ['test'],
-            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
-          },
-          {
-            title: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            startTime: '16:30',
-            endTime: '17:20',
-            category: 1,
-            description: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
-            presenters: ['test'],
-            programId: '5329ff1fdf834b98904c8a5c4d5c5a13',
-          },
-        ],
-      },
-    ],
-    result: '1',
-    timestamp: '2021-08-09T03:15:09.2164445Z',
-  }*/
   const Data = (await response.json()) as ResponseType
   const programs: prog[] = []
   const StartTimeList: string[] = []
