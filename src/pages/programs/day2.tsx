@@ -110,8 +110,10 @@ export const getStaticProps = async () => {
   const Tracks: string[] = []
   Data.data.forEach((track, index) => {
     track.programs.forEach((program) => {
-      StartTimeList.push(program.startTime)
-      programs.push({ ...program, trackNum: index })
+      if (program.category !== 0) {
+        StartTimeList.push(program.startTime)
+        programs.push({ ...program, trackNum: index })
+      }
     })
     Tracks.push(track.trackName)
   })
@@ -132,7 +134,6 @@ export const getStaticProps = async () => {
     })
     return data
   })
-  console.log(pcTimeTable)
   return {
     props: {
       Tracks,
