@@ -3,6 +3,9 @@ const SiteSetting = require('./site.config.js')
 const locales = SiteSetting.locales.map((value) => value.langName)
 
 module.exports = {
+  images: {
+    domains: ['storage.googleapis.com'],
+  },
   i18n: {
     locales,
     defaultLocale: locales[0],
