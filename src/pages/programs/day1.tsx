@@ -153,12 +153,12 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
         <ul className={styles.menuTab}>
           <li className={styles.active}>
             <Link href={'/programs/day1'}>
-              <a>10.17(sat.)</a>
+              <a>9.18(土)</a>
             </Link>
           </li>
           <li>
             <Link href={'/programs/day2'}>
-              <a>10.18(sun.)</a>
+              <a>9.19(日)</a>
             </Link>
           </li>
         </ul>
