@@ -3,7 +3,8 @@ import { NextPage } from 'next'
 import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
 import styles from '~/styles/components/DefaultSection.module.scss'
-import conceptStyles from '~/styles/components/Concept.module.scss'
+import linkStyles from '~/styles/components/Link.module.scss'
+import Link from 'next/link'
 
 const Analytics: NextPage = () => {
   const pageTitle = 'Google Analytics について | Code for Japan Summit 2021'
@@ -66,6 +67,11 @@ const Analytics: NextPage = () => {
             をご利用ください。
           </p>
         </div>
+        <p className={linkStyles.button}>
+          <Link href={'/'}>
+            <a>トップページへ</a>
+          </Link>
+        </p>
       </section>
       <Footer />
     </>
