@@ -14,6 +14,7 @@ type ProgramData = {
   description: string
   presenters: string[]
   programId: string
+  inputCompleted: string
 }
 
 type TrackData = {
@@ -193,44 +194,46 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                           } else if (typeof value === 'number') {
                             return <td key={Math.random()} className={styles.blank} />
                           } else if (value) {
+                            /*
+                            if (value.inputCompleted === '0') {
+                              return <td key={value.programId} className={styles.blank} />
+                            }*/
                             if (value.category === 4) {
                               return (
-                                <td key={Math.random()} className={styles.color02}>
+                                <td key={value.programId} className={styles.color02}>
                                   <p className={styles.time}>
                                     {value.startTime}-{value.endTime}
                                   </p>
-                                  <p className={styles.boldTitle}>{value.title}</p>
-                                  <div className={styles.detail}>
-                                    <p>{value.description}</p>
-                                  </div>
-                                  {value.presenters.map((value) => {
-                                    return (
-                                      <p key={value} className={styles.performer}>
-                                        {value}
-                                      </p>
-                                    )
-                                  })}
+                                  <p className={styles.detail}>{value.title}</p>
+
+                                  <p className={styles.performer}>
+                                    {value.presenters.map((value) => {
+                                      return <span key={value}>{value}</span>
+                                    })}
+                                  </p>
                                 </td>
                               )
                             } else {
                               return (
-                                <td key={Math.random()} className={styles.color01}>
+                                <td key={value.programId} className={styles.color01}>
                                   <Link href={`/programs/${value.programId}`}>
                                     <a>
                                       <p className={styles.time}>
                                         {value.startTime}-{value.endTime}
                                       </p>
-                                      <p className={styles.boldTitle}>{value.title}</p>
                                       <div className={styles.detail}>
-                                        <p>{value.description}</p>
+                                        <p>{value.title}</p>
                                       </div>
-                                      {value.presenters.map((value) => {
-                                        return (
-                                          <p key={value} className={styles.performer}>
-                                            {value}
-                                          </p>
-                                        )
-                                      })}
+
+                                      <p className={styles.performer}>
+                                        {value.presenters.map((pre, i) => {
+                                          return (
+                                            <span key={pre}>
+                                              {pre} {value.presenters.length - 1 !== i ? '/ ' : ''}
+                                            </span>
+                                          )
+                                        })}
+                                      </p>
                                     </a>
                                   </Link>
                                 </td>

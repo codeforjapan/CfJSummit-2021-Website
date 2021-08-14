@@ -519,10 +519,12 @@
     }
 
     .color01 {
+      vertical-align: top;
       background: #FFFFFF;
     }
 
     .color02 {
+      vertical-align: top;
       background: #CACACA;
       padding: 4px 4px 22px 4px;
       @include prPC {
