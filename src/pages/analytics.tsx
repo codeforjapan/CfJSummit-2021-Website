@@ -6,7 +6,7 @@ import styles from '~/styles/components/DefaultSection.module.scss'
 import conceptStyles from '~/styles/components/Concept.module.scss'
 
 const Analytics: NextPage = () => {
-  const pageTitle = 'Google Analytics について | Civictech Challenge Cup 2021'
+  const pageTitle = 'Google Analytics について | Code for Japan Summit 2021'
 
   const links = [
     {
@@ -24,7 +24,7 @@ const Analytics: NextPage = () => {
   ]
   return (
     <>
-      <MetaHead isTop />
+      <MetaHead title={pageTitle} />
       <Navigation />
       <section className={styles.lSection}>
         <h1 className={styles.sectionHeading}>Google Analyticsについて</h1>
