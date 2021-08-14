@@ -36,11 +36,9 @@ const Program: VFC = () => {
       </p>
       */}
       <h3 className={styles.sectionHeadingSub}>ENTRY</h3>
-      <p className={styles.sectionText}>
-        プレゼンテーションやパネルディスカッションへの応募を受付中です。
-      </p>
+      <p className={styles.sectionText}>LTの募集を受付中です</p>
       <p className={linkStyles.button}>
-        <a href="https://forms.gle/S8DfdxhMrVgrh8Vk7" target={'_blank'} rel={'noreferrer noopener'}>
+        <a href="https://forms.gle/qHoTu8PaQhaADNLJ6" target={'_blank'} rel={'noreferrer noopener'}>
           Entryフォームへ
         </a>
       </p>

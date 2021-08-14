@@ -5,8 +5,10 @@ import CfFukushima from '~/assets/co-sp/CfFukushima.png'
 import CfIwate from '~/assets/co-sp/CfIwate.png'
 import CfSendai from '~/assets/co-sp/CfSendai.gif'
 import CfShiogama from '~/assets/co-sp/CfShiogama.jpeg'
+import CfYamagata from '~/assets/co-sp/CfYamagata.jpg'
 import CfJLogo from '~/assets/CfJLogo.png'
 import RemoLogo from '~/assets/co/Remo.png'
+import IntilaqLogo from '~/assets/co/INTILAQ.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -27,7 +29,10 @@ const Sponsors = () => {
       <h2 className={styles.sponsorsHeading}>協力</h2>
       <ul className={styles.sponsorsLogos}>
         <li>
-          <Image src={RemoLogo} layout={'intrinsic'} alt="Code for Japan" />
+          <Image src={RemoLogo} layout={'intrinsic'} alt="Remo" />
+        </li>
+        <li>
+          <Image src={IntilaqLogo} layout={'intrinsic'} alt="INTILAQ" />
         </li>
       </ul>
       <h2 className={styles.sponsorsHeading}>主催</h2>
@@ -55,6 +60,9 @@ const Sponsors = () => {
         </li>
         <li>
           <Image src={CfSendai} layout={'intrinsic'} alt="Code for Sendai" />
+        </li>
+        <li>
+          <Image src={CfYamagata} layout={'intrinsic'} alt="Code for Yamagata" />
         </li>
       </ul>
       {/*

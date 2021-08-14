@@ -1,6 +1,7 @@
 import styles from '~/styles/components/Footer.module.scss'
 import Image from 'next/image'
 import CfJLogo from '~/assets/CfJLogo.png'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
@@ -15,6 +16,9 @@ const Footer = () => {
           <Image src={CfJLogo} layout={'intrinsic'} alt="Code for Japan" />
         </a>
       </h1>
+      <Link href="/analytics" passHref>
+        <a className={styles.footerCopy}>Google Analyticsについて</a>
+      </Link>
       <p className={styles.footerCopy}>&copy; Code for Japan All rights reserved.</p>
     </footer>
   )

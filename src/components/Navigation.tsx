@@ -4,7 +4,7 @@ import styles from '~/styles/components/Navigation.module.scss'
 import dayjs from 'dayjs'
 
 type Props = {
-  nowPage: 'Home' | 'Programs'
+  nowPage: 'Home' | 'Programs' | 'Analytics'
 }
 
 const Navigation: VFC<Props> = ({ nowPage }) => {
