@@ -133,10 +133,9 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                           } else if (typeof value === 'number') {
                             return <td key={Math.random()} className={styles.blank} />
                           } else if (value) {
-                            /*
                             if (value.inputCompleted === '0') {
                               return <td key={value.programId} className={styles.blank} />
-                            }*/
+                            }
                             if (value.category === 4) {
                               return (
                                 <td key={value.programId} className={styles.color02}>
@@ -209,6 +208,9 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                           {value.trackName}
                         </th>
                         {value.programs.map((value) => {
+                          if (value.inputCompleted === '0') {
+                            return <td key={value.programId} className={styles.blank} />
+                          }
                           return (
                             <td className={styles.color01} key={value.programId}>
                               <Link href={`/programs/${value.programId}`}>
