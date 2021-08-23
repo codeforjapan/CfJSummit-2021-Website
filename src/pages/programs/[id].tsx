@@ -114,7 +114,14 @@ const ProgramDetails = ({
               return (
                 <div className={styles.flex} key={value.presenterId}>
                   <div className={styles.picsContent}>
-                    <Image src={value.photoURL} alt={'picture'} width={'240px'} height={'240px'} />
+                    {value.photoURL ? (
+                      <Image
+                        src={value.photoURL}
+                        alt={'picture'}
+                        width={'240px'}
+                        height={'240px'}
+                      />
+                    ) : undefined}
                     <p>{value.name['ja']}</p>
                   </div>
                   <div className={styles.textContent}>
