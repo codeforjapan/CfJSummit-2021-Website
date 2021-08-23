@@ -209,44 +209,48 @@
       margin-top: 110px;
       margin-bottom: 72px;
     }
+    @include prTB {
+      flex-direction: column;
+    }
     @include prSP {
       font-size: 32px;
       line-height: 37px;
       margin-top: 111px;
       margin-bottom: 114px;
     }
-  }
 
-  .headingLang {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    margin: 0 0 0 24px;
+    .headingLang {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin: 0 0 0 24px;
 
-    li {
-      &:after {
-        content: "|";
-        padding: 0 10px;
-      }
-
-      a{
-        color: #ffffff;
-        text-decoration: none;
-        text-transform: uppercase;
-        &.isActive {
-          color: #4AC0E5;
-          pointer-events: none;
-        }
-      }
-
-      &:last-child {
+      li {
         &:after {
-          display: none;
+          content: "|";
+          padding: 0 10px;
+        }
+
+        a{
+          color: #ffffff;
+          text-decoration: none;
+          text-transform: uppercase;
+          &.isActive {
+            color: #4AC0E5;
+            pointer-events: none;
+          }
+        }
+
+        &:last-child {
+          &:after {
+            display: none;
+          }
         }
       }
     }
   }
+
 
   @include prSP {
     display: block;
@@ -323,10 +327,10 @@
     display: none;
     width: 100%;
     @include prPC {
-      padding: 0px 84px;
+      padding: 0 60px;
     }
-    @include prSP {
-      padding: 0px 16px;
+    @include prTB {
+      padding: 0 16px;
     }
 
     .timeTable {
@@ -363,6 +367,7 @@
           min-width: 123px;
           width: 95%;
           margin: 0 auto 32px;
+          list-style: none;
           @include prSP {
             min-width: 104px;
             width: 95%;

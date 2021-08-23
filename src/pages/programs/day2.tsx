@@ -6,9 +6,6 @@ import styles from '../../styles/Programs.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import 'dayjs/locale/ja'
-import 'dayjs/locale/en'
-import 'dayjs/locale/zh-tw'
 import dayjs from 'dayjs'
 
 type ProgramData = {
@@ -44,8 +41,8 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale } = context
   const response = await fetch(
     `https://webapi20210430062843.azurewebsites.net/api/listprogramforweb?lang=${
-      locale ? locale : 'ja'
-    }&date=1`,
+      locale ? locale.replace('-', '_') : 'ja'
+    }&date=2`,
     {
       headers: {
         Authorization: process.env.API_KEY ? process.env.API_KEY : 'APIKEY is Required',
@@ -191,7 +188,7 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                                       <p className={styles.performer}>
                                         {value.presenters.map((pre, i) => {
                                           return (
-                                            <span key={pre}>
+                                            <span key={pre + i}>
                                               {pre} {value.presenters.length - 1 !== i ? '/ ' : ''}
                                             </span>
                                           )
@@ -217,7 +214,7 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                 {Tracks.map((value) => {
                   return (
                     <li className={styles.trackList} key={value}>
-                      <Link href={`#${value}`}>
+                      <Link href={`#${value.replace(/[^0-9]/g, '')}`}>
                         <a>{value}</a>
                       </Link>
                     </li>
@@ -228,13 +225,38 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                 <tbody>
                   {spTimeTable.map((value) => {
                     return (
-                      <tr id={value.trackName} key={value.trackName}>
-                        <th className={classNames(styles.color01, styles.track)}>
+                      <tr key={value.trackName}>
+                        <th
+                          className={classNames(styles.color01, styles.track)}
+                          id={value.trackName.replace(/[^0-9]/g, '')}
+                        >
                           {value.trackName}
                         </th>
                         {value.programs.map((value) => {
                           if (value.inputCompleted === '0') {
-                            return <td key={value.programId} className={styles.blank} />
+                            return undefined //<td key={value.programId} className={styles.blank} />
+                          }
+                          if (value.category === 4) {
+                            return undefined
+                            /*
+                            return (
+                              <td key={value.programId} className={styles.color02}>
+                                <p className={styles.time}>
+                                  {value.startTime}-{value.endTime}
+                                </p>
+                                <p className={styles.boldTitle}>{value.title}</p>
+                                <div className={styles.detail}>
+                                  <p>{value.description}</p>
+                                </div>
+                                {value.presenters.map((value) => {
+                                  return (
+                                    <p key={value} className={styles.performer}>
+                                      {value}
+                                    </p>
+                                  )
+                                })}
+                              </td>
+                            )*/
                           }
                           return (
                             <td className={styles.color01} key={value.programId}>
@@ -247,9 +269,9 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                                   <div className={styles.detail}>
                                     <p>{value.description}</p>
                                   </div>
-                                  {value.presenters.map((value) => {
+                                  {value.presenters.map((value, i) => {
                                     return (
-                                      <p key={value} className={styles.performer}>
+                                      <p key={value + i} className={styles.performer}>
                                         {value}
                                       </p>
                                     )

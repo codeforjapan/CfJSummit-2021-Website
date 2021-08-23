@@ -8,6 +8,7 @@ import dayjs from 'dayjs'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { getLocaleVocabulary } from '~/lib/settings'
+import React from 'react'
 
 export const getStaticPaths = async () => {
   try {
@@ -78,6 +79,7 @@ const ProgramDetails = ({
 }: any) => {
   const router = useRouter()
   const locale = router.locale ? router.locale : 'ja'
+  dayjs.locale(locale)
   return (
     <>
       <MetaHead isTop />
@@ -85,24 +87,53 @@ const ProgramDetails = ({
       <main className={styles.lMain}>
         <div className={styles.timetableDetailWrapper}>
           <div className={styles.detailTitle}>
-            <p className={styles.track}>{trackName[locale]}</p>
+            <p className={styles.track}>
+              {trackName[locale]
+                ? trackName[locale]
+                : trackName['en']
+                ? trackName['en']
+                : trackName['ja']}
+            </p>
             <p className={styles.date}>
               {dayjs(date).format('MM.DD(ddd)')} {startTime}-{endTime}
             </p>
           </div>
-          <h1 className={styles.topicTitle}>{title[locale]}</h1>
+          <h1 className={styles.topicTitle}>
+            {title[locale] ? title[locale] : title['en'] ? title['en'] : title['ja']}
+          </h1>
 
           <section className={styles.topicDetail}>
             <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'overview')}</h2>
-            <p>{description[locale]}</p>
+            <p>
+              {(() => {
+                const descriptionlocale = description[locale]
+                  ? description[locale]
+                  : description['en']
+                  ? description['en']
+                  : description['ja']
+                return descriptionlocale.split('\n').map((str: string, index: number) => (
+                  <React.Fragment key={index}>
+                    {str}
+                    <br />
+                  </React.Fragment>
+                ))
+              })()}
+            </p>
 
             <ul>
               {urls.map((url: any) => {
-                if (url.title[locale]) {
+                const urlTitle = url.title[locale]
+                  ? url.title[locale]
+                  : url.title['en']
+                  ? url.title['en']
+                  : url.title['ja']
+                if (urlTitle || url.url) {
                   return (
                     <li key={Math.random()}>
                       <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
-                        {url.title[locale]}
+                        {urlTitle}
+                        {urlTitle ? <br /> : undefined}
+                        {url.url}
                       </a>
                     </li>
                   )
@@ -126,17 +157,55 @@ const ProgramDetails = ({
                         height={'240px'}
                       />
                     ) : undefined}
-                    <p>{value.name[locale]}</p>
                   </div>
                   <div className={styles.textContent}>
-                    <p>{value.description[locale]}</p>
+                    <p className={styles.presenterName}>
+                      {value.name[locale]
+                        ? value.name[locale]
+                        : value.name['en']
+                        ? value.name['en']
+                        : value.name['ja']}
+                    </p>
+                    <p className={styles.organizationName}>
+                      {value.organization[locale]
+                        ? value.organization[locale]
+                        : value.organization['en']
+                        ? value.organization['en']
+                        : value.organization['ja']}
+                    </p>
+                    <p>
+                      {(() => {
+                        const descriptionlocale = value.description[locale]
+                          ? value.description[locale]
+                          : value.description['en']
+                          ? value.description['en']
+                          : value.description['ja']
+                        return descriptionlocale.split('\n').map((str: string, index: number) => {
+                          if (str) {
+                            return (
+                              <React.Fragment key={index}>
+                                {str}
+                                <br />
+                              </React.Fragment>
+                            )
+                          }
+                        })
+                      })()}
+                    </p>
                     <ul>
                       {value.urls.map((url: any) => {
-                        if (url.title[locale]) {
+                        const urlTitle = url.title[locale]
+                          ? url.title[locale]
+                          : url.title['en']
+                          ? url.title['en']
+                          : url.title['ja']
+                        if (urlTitle || url.url) {
                           return (
                             <li key={Math.random()}>
                               <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
-                                {url.title[locale]}
+                                {urlTitle}
+                                {urlTitle ? <br /> : undefined}
+                                {url.url}
                               </a>
                             </li>
                           )

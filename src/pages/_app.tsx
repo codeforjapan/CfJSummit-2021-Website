@@ -4,6 +4,9 @@ import Script from 'next/script'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { pageview } from '~/lib/gtag.js'
+import 'dayjs/locale/ja'
+import 'dayjs/locale/en'
+import 'dayjs/locale/zh-tw'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()

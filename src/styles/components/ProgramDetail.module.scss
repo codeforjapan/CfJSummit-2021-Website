@@ -118,23 +118,29 @@
             margin-bottom: 16px;
           }
 
-          p {
-            font-weight: bold;
-            font-size: 20px;
-            line-height: 20px;
-            color: #FFFFFF;
-          }
         }
 
         .textContent {
           flex: 1;
 
+          .presenterName {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 20px;
+            color: #FFFFFF;
+          }
+          .organizationName {
+            font-weight: bolder;
+            font-size: 18px;
+            line-height: 20px;
+            color: #FFFFFF;
+          }
           p {
             font-weight: normal;
             font-size: 16px;
             line-height: 22px;
             color: #FFFFFF;
-            margin-bottom: 32px;
+            margin-bottom: 16px;
           }
 
           a {
@@ -142,6 +148,9 @@
             font-size: 16px;
             line-height: 19px;
             color: #FFFFFF;
+          }
+          ul {
+            margin: 0;
           }
         }
       }
