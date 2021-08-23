@@ -4,8 +4,8 @@
   width: 100%;
 
   .timetableDetailWrapper {
-    max-width: 720px;
-    width: 50%;
+    max-width: 800px;
+    width: 100%;
     margin: 152px auto 160px;
 
     @include mqTB {
@@ -98,6 +98,7 @@
 
       .flex {
         display: flex;
+        margin-bottom: 20px;
 
         @include mqSP {
           display: block;
