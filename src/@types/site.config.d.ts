@@ -1,9 +1,13 @@
+interface Vocabulary {
+  [key: string]: string
+}
 interface LocaleConfig {
   langName: string
   timeZone: string
   siteDescription: string
   siteName: string
   siteKeyWord: string
+  vocabulary: Vocabulary
 }
 interface MetaConfig {
   noindex: boolean

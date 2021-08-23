@@ -1,10 +1,12 @@
 import Navigation from '~/components/Navigation'
-import { NextPage } from 'next'
+import { GetStaticPropsContext, NextPage } from 'next'
 import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
 import styles from '../../styles/Programs.module.scss'
 import classNames from 'classnames'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
+import dayjs from 'dayjs'
 
 type ProgramData = {
   title: string
@@ -34,9 +36,12 @@ type ResponseType = {
   result: string
   timestamp: string
 }
-export const getStaticProps = async () => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
+  const { locale } = context
   const response = await fetch(
-    'https://webapi20210430062843.azurewebsites.net/api/listprogramforweb?lang=ja&date=1',
+    `https://webapi20210430062843.azurewebsites.net/api/listprogramforweb?lang=${
+      locale ? locale : 'ja'
+    }&date=1`,
     {
       headers: {
         Authorization: process.env.API_KEY ? process.env.API_KEY : 'APIKEY is Required',
@@ -83,21 +88,38 @@ export const getStaticProps = async () => {
 }
 
 const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) => {
+  const { locales, locale } = useRouter()
+  dayjs.locale(locale ? locale : 'ja')
   return (
     <>
       <MetaHead isTop />
       <Navigation nowPage={'Programs'} />
       <div className={styles.timetableWrapper}>
-        <h2 className={styles.sectionHeading}>PROGRAM</h2>
+        <h2 className={styles.sectionHeading}>
+          PROGRAM
+          {locales ? (
+            <ul className={styles.headingLang}>
+              {locales.map((value) => {
+                return (
+                  <li key={value}>
+                    <Link href={'/programs/day1'} locale={value}>
+                      <a className={locale === value ? styles.isActive : undefined}>{value}</a>
+                    </Link>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : undefined}
+        </h2>
         <ul className={styles.menuTab}>
           <li className={styles.active}>
             <Link href={'/programs/day1'}>
-              <a>9.18(土)</a>
+              <a>{dayjs('2021/09/18').format('M.DD(ddd)')}</a>
             </Link>
           </li>
           <li>
             <Link href={'/programs/day2'}>
-              <a>9.19(日)</a>
+              <a>{dayjs('2021/09/19').format('M.DD(ddd)')}</a>
             </Link>
           </li>
         </ul>

@@ -12,13 +12,11 @@ module.exports = {
   },
   future: {
     optimizeFonts: true,
-    optimizeCss: true,
     optimizeImages: true,
   },
   experimental: {
     eslint: true,
     optimizeFonts: true,
-    optimizeCss: true,
     optimizeImages: true,
   },
   sassOptions: {

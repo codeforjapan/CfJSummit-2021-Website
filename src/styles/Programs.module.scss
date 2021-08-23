@@ -217,7 +217,7 @@
     }
   }
 
-  .heading-lang {
+  .headingLang {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -230,9 +230,14 @@
         padding: 0 10px;
       }
 
-      a.is-active {
-        color: #4AC0E5;
-        pointer-events: none;
+      a{
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        &.isActive {
+          color: #4AC0E5;
+          pointer-events: none;
+        }
       }
 
       &:last-child {

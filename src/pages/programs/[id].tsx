@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { GetStaticPropsContext } from 'next'
 import dayjs from 'dayjs'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+import { getLocaleVocabulary } from '~/lib/settings'
 
 export const getStaticPaths = async () => {
   try {
@@ -74,6 +76,8 @@ const ProgramDetails = ({
   trackName,
   urls,
 }: any) => {
+  const router = useRouter()
+  const locale = router.locale ? router.locale : 'ja'
   return (
     <>
       <MetaHead isTop />
@@ -81,24 +85,24 @@ const ProgramDetails = ({
       <main className={styles.lMain}>
         <div className={styles.timetableDetailWrapper}>
           <div className={styles.detailTitle}>
-            <p className={styles.track}>{trackName['ja']}</p>
+            <p className={styles.track}>{trackName[locale]}</p>
             <p className={styles.date}>
               {dayjs(date).format('MM.DD(ddd)')} {startTime}-{endTime}
             </p>
           </div>
-          <h1 className={styles.topicTitle}>{title['ja']}</h1>
+          <h1 className={styles.topicTitle}>{title[locale]}</h1>
 
           <section className={styles.topicDetail}>
-            <h2 className={styles.topicHeading}>概要</h2>
-            <p>{description['ja']}</p>
+            <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'overview')}</h2>
+            <p>{description[locale]}</p>
 
             <ul>
               {urls.map((url: any) => {
-                if (url.title['ja']) {
+                if (url.title[locale]) {
                   return (
                     <li key={Math.random()}>
                       <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
-                        {url.title['ja']}
+                        {url.title[locale]}
                       </a>
                     </li>
                   )
@@ -109,7 +113,7 @@ const ProgramDetails = ({
             </ul>
           </section>
           <section className={styles.topicPerformer}>
-            <h2 className={styles.topicHeading}>登壇者</h2>
+            <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'speakers')}</h2>
             {presenters.map((value: any) => {
               return (
                 <div className={styles.flex} key={value.presenterId}>
@@ -122,17 +126,17 @@ const ProgramDetails = ({
                         height={'240px'}
                       />
                     ) : undefined}
-                    <p>{value.name['ja']}</p>
+                    <p>{value.name[locale]}</p>
                   </div>
                   <div className={styles.textContent}>
-                    <p>{value.description['ja']}</p>
+                    <p>{value.description[locale]}</p>
                     <ul>
                       {value.urls.map((url: any) => {
-                        if (url.title['ja']) {
+                        if (url.title[locale]) {
                           return (
                             <li key={Math.random()}>
                               <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
-                                {url.title['ja']}
+                                {url.title[locale]}
                               </a>
                             </li>
                           )
@@ -146,7 +150,7 @@ const ProgramDetails = ({
               )
             })}
           </section>
-          <Link href="/programs/day1">
+          <Link href={'/programs/day1'}>
             <a className={styles.linkBack}>
               <i>
                 <svg
@@ -162,7 +166,7 @@ const ProgramDetails = ({
                   />
                 </svg>
               </i>
-              PROGRAM 一覧へ
+              {getLocaleVocabulary(locale, 'backToList')}
             </a>
           </Link>
         </div>
