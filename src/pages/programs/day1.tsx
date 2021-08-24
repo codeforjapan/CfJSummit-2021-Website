@@ -84,6 +84,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
       pcTimeTable,
       spTimeTable: Data.data,
     },
+    revalidate: 60,
   }
 }
 

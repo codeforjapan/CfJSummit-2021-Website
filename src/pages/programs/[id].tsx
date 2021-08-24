@@ -67,6 +67,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       urls,
       programId,
     },
+    revalidate: 60,
   }
 }
 const ProgramDetails = ({
