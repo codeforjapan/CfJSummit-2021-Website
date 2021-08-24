@@ -41,7 +41,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const { locale } = context
   const response = await fetch(
     `https://webapi20210430062843.azurewebsites.net/api/listprogramforweb?lang=${
-      locale ? locale.replace('-', '_') : 'ja'
+      locale ? locale.replace('-', '_').toLowerCase() : 'ja'
     }&date=2`,
     {
       headers: {
@@ -90,7 +90,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) => {
   const { locales, locale } = useRouter()
-  dayjs.locale(locale ? locale : 'ja')
+  dayjs.locale(locale ? locale.toLowerCase() : 'ja')
   return (
     <>
       <MetaHead isTop />

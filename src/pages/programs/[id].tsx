@@ -55,7 +55,6 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   const json = await response.json()
   const { presenters, date, description, startTime, endTime, title, trackName, urls, programId } =
     json.data
-  console.log(presenters)
   return {
     props: {
       presenters,
@@ -83,7 +82,7 @@ const ProgramDetails = ({
 }: any) => {
   const router = useRouter()
   const locale = router.locale ? router.locale : 'ja'
-  dayjs.locale(locale)
+  dayjs.locale(locale.toLowerCase())
   return (
     <>
       <MetaHead isTop />

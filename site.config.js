@@ -55,7 +55,7 @@ const SiteConfig = {
       },
     },
     {
-      langName: 'zh-tw',
+      langName: 'zh-TW',
       timeZone: 'Asia/Tokyo',
       siteDescription:
         '東日本大震災から10年。' +
@@ -71,7 +71,7 @@ const SiteConfig = {
       },
     },
     {
-      langName: 'zh-cn',
+      langName: 'zh-CN',
       timeZone: 'Asia/Tokyo',
       siteDescription:
         '東日本大震災から10年。' +
