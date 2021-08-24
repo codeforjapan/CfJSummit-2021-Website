@@ -61,6 +61,37 @@
           line-height: 23px;
         }
       }
+
+      .headingLang {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin: 0 0 0 24px;
+
+        li {
+          &:after {
+            content: "|";
+            padding: 0 10px;
+          }
+
+          a{
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            &.isActive {
+              color: #4AC0E5;
+              pointer-events: none;
+            }
+          }
+
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
     }
 
     .topicTitle {
@@ -98,7 +129,7 @@
 
       .flex {
         display: flex;
-        margin-bottom: 20px;
+        margin-bottom: 60px;
 
         @include mqSP {
           display: block;
@@ -152,6 +183,9 @@
           }
           ul {
             margin: 0;
+            li {
+              line-height: 1;
+            }
           }
         }
       }

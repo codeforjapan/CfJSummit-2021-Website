@@ -53,7 +53,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
     requestOptions
   )
   const json = await response.json()
-  const { presenters, date, description, startTime, endTime, title, trackName, urls } = json.data
+  const { presenters, date, description, startTime, endTime, title, trackName, urls, programId } =
+    json.data
+  console.log(presenters)
   return {
     props: {
       presenters,
@@ -64,6 +66,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       title,
       trackName,
       urls,
+      programId,
     },
   }
 }
@@ -76,6 +79,7 @@ const ProgramDetails = ({
   title,
   trackName,
   urls,
+  programId,
 }: any) => {
   const router = useRouter()
   const locale = router.locale ? router.locale : 'ja'
@@ -97,6 +101,19 @@ const ProgramDetails = ({
             <p className={styles.date}>
               {dayjs(date).format('MM.DD(ddd)')} {startTime}-{endTime}
             </p>
+            {router.locales ? (
+              <ul className={styles.headingLang}>
+                {router.locales.map((value) => {
+                  return (
+                    <li key={value}>
+                      <Link href={`/programs/${programId}`} locale={value}>
+                        <a className={locale === value ? styles.isActive : undefined}>{value}</a>
+                      </Link>
+                    </li>
+                  )
+                })}
+              </ul>
+            ) : undefined}
           </div>
           <h1 className={styles.topicTitle}>
             {title[locale] ? title[locale] : title['en'] ? title['en'] : title['ja']}
@@ -165,6 +182,15 @@ const ProgramDetails = ({
                         : value.name['en']
                         ? value.name['en']
                         : value.name['ja']}
+
+                      {locale === 'ja' ||
+                      (value.name[locale]
+                        ? value.name[locale]
+                        : value.name['en']
+                        ? value.name['en']
+                        : value.name['ja']) === value.name['ja']
+                        ? `（${value.name['ja_kana']}）`
+                        : undefined}
                     </p>
                     <p className={styles.organizationName}>
                       {value.organization[locale]
