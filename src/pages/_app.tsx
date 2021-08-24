@@ -7,6 +7,7 @@ import { pageview } from '~/lib/gtag.js'
 import 'dayjs/locale/ja'
 import 'dayjs/locale/en'
 import 'dayjs/locale/zh-tw'
+import 'dayjs/locale/zh-cn'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
