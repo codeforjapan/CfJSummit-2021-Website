@@ -237,7 +237,7 @@
           text-decoration: none;
           text-transform: uppercase;
           &.isActive {
-            color: #4AC0E5;
+            color: #E19821;
             pointer-events: none;
           }
         }
@@ -273,7 +273,7 @@
       width: 50%;
       background-color: #FFFFFF;
       border-radius: 8px 0 0 0;
-      border-bottom: #4AC0E5 4px solid;
+      border-bottom: #E19821 4px solid;
 
       a {
         display: block;
@@ -299,7 +299,7 @@
       }
 
       &.active {
-        background-color: #4AC0E5;
+        background-color: #E19821;
         box-shadow: initial;
       }
     }
@@ -397,7 +397,7 @@
           }
 
           &.active a {
-            color: #4AC0E5;
+            color: #E19821;
 
             &:before {
               content: '';
