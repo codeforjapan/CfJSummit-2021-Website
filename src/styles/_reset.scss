@@ -36,6 +36,8 @@ ol[class] {
 // Classがないものに対してデフォルトのスタイルを適用
 a:not([class]) {
   text-decoration-skip-ink: auto;
+  text-decoration: none;
+  color: black;
 }
 
 // articleを最適化

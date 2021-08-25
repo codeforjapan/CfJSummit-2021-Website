@@ -22,7 +22,7 @@ const Home: NextPage = () => {
     <>
       <MetaHead isTop />
       <div className={Scroll.box}>
-        <Navigation />
+        <Navigation nowPage={'Home'} />
         <Header />
         <div className={Scroll.arrowWrap} aria-hidden={true}>
           <div className={Scroll.arrowInner}>

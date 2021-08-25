@@ -26,7 +26,7 @@ const Analytics: NextPage = () => {
   return (
     <>
       <MetaHead title={pageTitle} />
-      <Navigation />
+      <Navigation nowPage={'Analytics'} />
       <section className={styles.lSection}>
         <h1 className={styles.sectionHeading}>Google Analyticsについて</h1>
         <div className={styles.sectionText}>

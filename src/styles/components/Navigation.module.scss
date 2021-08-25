@@ -25,9 +25,10 @@
   li {
     margin: 0 32px 0 0;
     a {
+      text-decoration: none;
+      color: #FFFFFF;
       &.isActive {
-        pointer-events: none;
-        color: #4AC0E5;
+        color: #E19821;
       }
     }
   }

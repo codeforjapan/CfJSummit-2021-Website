@@ -1,185 +1,254 @@
 @use "../mixin" as *;
-.lMain{
+
+.lMain {
+  width: 100%;
+
+  .timetableDetailWrapper {
+    max-width: 800px;
     width: 100%;
+    margin: 152px auto 160px;
 
-    .timetableDetailWrapper{
-        max-width: 720px;
-        width: 50%;
-        margin: 152px auto 160px;
-
-        @include mqTB {
-            width: 100%;
-            padding: 0 24px;
-            margin: 160px auto 160px;
-        }
-
-        @include mqSP {
-            width: 100%;
-            padding: 0 16px;
-            margin: 111px auto 80px;
-        }
-
-        .detailTitle{
-            display: flex;
-            align-items: center;
-            margin-bottom: 32px;
-
-            @include mqSP {
-                display: block;
-            }
-
-            .track{
-                background-color: #ffffff;
-                font-weight: bold;
-                font-size: 24px;
-                line-height: 28px;
-                color: #333333;
-                padding: 6px 30px;
-                margin-right: 16px;
-                max-width: 35%;
-
-                @include mqSP {
-                    display: inline-block;
-                    margin-bottom: 16px;
-                    font-size: 20px;
-                    max-width: initial;
-                    line-height: 23px;
-                }
-            }
-
-            .date{
-                font-weight: bold;
-                font-size: 24px;
-                line-height: 28px;
-                color: #FFFFFF;
-
-                @include mqSP {
-                    font-size: 20px;
-                    line-height: 23px;
-                }
-            }
-        }
-
-        .topicTitle{
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 32px;
-            color: #FFFFFF;
-            margin-bottom: 80px;
-
-            @include mqSP {
-                font-size: 20px;
-                line-height: 24px;
-            }
-        }
-
-        .topicDetail{
-            margin-bottom: 80px;
-
-            p {
-                font-weight: normal;
-                font-size: 16px;
-                line-height: 22px;
-                color: #FFFFFF;
-            }
-        }
-
-        .topicPerformer{
-            margin-bottom: 80px;
-
-            .flex{
-                display: flex;
-
-                @include mqSP {
-                    display: block;
-                }
-
-                .picsContent{
-                    margin-right: 16px;
-                    margin-bottom: 30px;
-
-                    @include mqSP {
-                        margin-bottom: 32px;
-                    }
-
-                    img{
-                        width: 240px;
-                        height: 240px;
-                        background-color: #CACACA;
-                        margin-bottom: 16px;
-                    }
-
-                    p {
-                        font-weight: bold;
-                        font-size: 20px;
-                        line-height: 20px;
-                        color: #FFFFFF;
-                    }
-                }
-
-                .textContent{
-                    flex: 1;
-                    p{
-                        font-weight: normal;
-                        font-size: 16px;
-                        line-height: 22px;
-                        color: #FFFFFF;
-                        margin-bottom: 32px;
-                    }
-
-                    a{
-                        font-weight: normal;
-                        font-size: 16px;
-                        line-height: 19px;
-                        color: #FFFFFF;
-                    }
-                }
-            }
-
-        }
-
-        .contents:last-child{
-            margin-bottom: 0px;
-        }
-    }
-    .topicsGrareco {
-        margin-bottom: 80px;
-        > div {
-            margin-bottom: 15px;
-            &:last-child {
-                margin-bottom: 0;
-            }
-            img {
-                max-width: 100%;
-            }
-        }
+    @include mqTB {
+      width: 100%;
+      padding: 0 24px;
+      margin: 160px auto 160px;
     }
 
-    .topicHeading {
+    @include mqSP {
+      width: 100%;
+      padding: 0 16px;
+      margin: 111px auto 80px;
+    }
+
+    .detailTitle {
+      display: flex;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+      gap: 10px 10px;
+
+      @include mqSP {
+        display: block;
+      }
+
+      .track {
+        background-color: #ffffff;
         font-weight: bold;
         font-size: 24px;
-        line-height: 32px;
-        color: #FFFFFF;
-        margin-bottom: 16px;
-        position: relative;
-        padding-left: 20px;
-        list-style: none;
+        line-height: 28px;
+        color: #333333;
+        padding: 6px 10px;
+        margin-right: 16px;
+        max-width: 100%;
 
         @include mqSP {
-            font-size: 20px;
-            line-height: 32px;
+          display: inline-block;
+          margin-bottom: 16px;
+          font-size: 20px;
+          max-width: initial;
+          line-height: 23px;
         }
+      }
+
+      .date {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        color: #FFFFFF;
+
+        @include mqSP {
+          font-size: 20px;
+          line-height: 23px;
+        }
+      }
+
+      .headingLang {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        margin: 0 0 0 24px;
+
+        li {
+          &:after {
+            content: "|";
+            padding: 0 10px;
+          }
+
+          a{
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            &.isActive {
+              color: #E19821;
+              pointer-events: none;
+            }
+          }
+
+          &:last-child {
+            &:after {
+              display: none;
+            }
+          }
+        }
+      }
     }
 
-    .topicHeading:before {
-        border-radius: 50%;
-        width: 10px;
-        height: 10px;
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 11px;
-        content: "";
-        background: #F3F190;
+    .topicTitle {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 1.7;
+      color: #FFFFFF;
+      margin-bottom: 80px;
+
+      @include mqSP {
+        font-size: 20px;
+        line-height: 24px;
+      }
     }
+
+    .topicDetail {
+      margin-bottom: 80px;
+
+      p {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #FFFFFF;
+      }
+      a {
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 1.7;
+        color: #FFFFFF;
+      }
+    }
+
+    .topicPerformer {
+      margin-bottom: 80px;
+
+      .flex {
+        display: flex;
+        margin-bottom: 60px;
+
+        @include mqSP {
+          display: block;
+        }
+
+        .picsContent {
+          margin-right: 16px;
+          margin-bottom: 30px;
+
+          @include mqSP {
+            margin-bottom: 32px;
+          }
+
+          img {
+            width: 240px;
+            height: 240px;
+            background-color: #CACACA;
+            margin-bottom: 16px;
+          }
+
+        }
+
+        .textContent {
+          flex: 1;
+
+          .presenterName {
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 20px;
+            color: #FFFFFF;
+          }
+          .organizationName {
+            font-weight: bolder;
+            font-size: 18px;
+            line-height: 20px;
+            color: #FFFFFF;
+          }
+          p {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 22px;
+            color: #FFFFFF;
+            margin-bottom: 16px;
+          }
+
+          a {
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 19px;
+            color: #FFFFFF;
+          }
+          ul {
+            margin: 0;
+            li {
+              line-height: 1;
+            }
+          }
+        }
+      }
+
+    }
+  }
+
+  .topicsGrareco {
+    margin-bottom: 80px;
+
+    > div {
+      margin-bottom: 15px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .topicHeading {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    position: relative;
+    padding-left: 20px;
+    list-style: none;
+
+    @include mqSP {
+      font-size: 20px;
+      line-height: 32px;
+    }
+  }
+
+  .topicHeading:before {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 11px;
+    content: "";
+    background: #F3F190;
+  }
+
+
+}
+
+.linkBack {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+
+  > i {
+    position: relative;
+    top: 2px;
+    margin: 0 13px 0 0;
+  }
 }
