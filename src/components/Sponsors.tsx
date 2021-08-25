@@ -9,6 +9,9 @@ import CfYamagata from '~/assets/co-sp/CfYamagata.jpg'
 import CfJLogo from '~/assets/CfJLogo.png'
 import RemoLogo from '~/assets/co/Remo.png'
 import IntilaqLogo from '~/assets/co/INTILAQ.png'
+import UDTalkLogo from '~/assets/sp/UDTalk.png'
+import GrafferLogo from '~/assets/sp/Graffer.png'
+import InfoLoungeLogo from '~/assets/sp/InfoLounge.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -26,6 +29,24 @@ const Sponsors = () => {
       <h2 className={styles.sponsorsHeading}>メディアパートナー</h2>
       <ul className={styles.sponsorsLogos}></ul>
       */}
+      <h2 className={styles.sponsorsHeading}>協賛</h2>
+      <ul className={styles.sponsorsLogos}>
+        <li>
+          <a href="https://udtalk.jp/" target="_blank" rel="noreferrer noopener">
+            <Image src={UDTalkLogo} layout={'intrinsic'} alt="UDTalk" />
+          </a>
+        </li>
+        <li>
+          <a href="https://info-lounge.jp/" target="_blank" rel="noreferrer noopener">
+            <Image src={InfoLoungeLogo} layout={'intrinsic'} alt="InfoLounge" />
+          </a>
+        </li>
+        <li>
+          <a href="https://graffer.jp/" target="_blank" rel="noreferrer noopener">
+            <Image src={GrafferLogo} layout={'intrinsic'} alt="Graffer" />
+          </a>
+        </li>
+      </ul>
       <h2 className={styles.sponsorsHeading}>協力</h2>
       <ul className={styles.sponsorsLogos}>
         <li>
