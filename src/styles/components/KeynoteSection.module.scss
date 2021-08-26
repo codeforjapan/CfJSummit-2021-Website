@@ -7,6 +7,11 @@
 	grid-template-columns: 60% 1fr;
 	grid-template-rows: 1fr;
 	gap: 1rem;
+	margin: 0 0 50px 0;
+	@include mqSP {
+		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+	}
 	.keynoteImage {
 		margin: 0 0 50px 0;
 		@include mqSP {
@@ -25,7 +30,7 @@
 			font-size: 20px;
 		}
 		@include mqSP {
-			margin: 0 0 60px 0;
+			margin: 0 0 20px 0;
 			dt {
 				font-size: 24px;
 				margin: 0 0 10px 0;
