@@ -245,7 +245,7 @@ const ProgramDetails = ({
               )
             })}
           </section>
-          <Link href={'/programs/day1'}>
+          <Link href={date === '2021-09-19' ? '/programs/day2' : '/programs/day1'}>
             <a className={styles.linkBack}>
               <i>
                 <svg
