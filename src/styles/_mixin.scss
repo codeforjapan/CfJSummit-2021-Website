@@ -62,6 +62,22 @@
   }
 }
 @mixin mqSP {
+  @media screen and (max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin prPC {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin prTB {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin prSP {
   @media screen and (max-width: 414px) {
     @content;
   }

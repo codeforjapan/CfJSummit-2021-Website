@@ -4,6 +4,10 @@ import Script from 'next/script'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 import { pageview } from '~/lib/gtag.js'
+import 'dayjs/locale/ja'
+import 'dayjs/locale/en'
+import 'dayjs/locale/zh-tw'
+import 'dayjs/locale/zh-cn'
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
@@ -18,14 +22,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   }, [router.events])
   return (
     <>
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-E7J490JHM0" />
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+      />
       <Script
         dangerouslySetInnerHTML={{
           __html: `  window.dataLayer = window.dataLayer || [];
                      function gtag(){dataLayer.push(arguments);}
                      gtag('js', new Date());
                     
-                     gtag('config', 'G-E7J490JHM0');`,
+                     gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');`,
         }}
       />
       <Component {...pageProps} />
