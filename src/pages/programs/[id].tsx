@@ -165,7 +165,7 @@ const ProgramDetails = ({
                   : url.title['en']
                   ? url.title['en']
                   : url.title['ja']
-                if (urlTitle || url.url) {
+                if ((urlTitle && url.url) || url.url) {
                   return (
                     <li key={Math.random()}>
                       <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
@@ -246,7 +246,7 @@ const ProgramDetails = ({
                           : url.title['en']
                           ? url.title['en']
                           : url.title['ja']
-                        if (urlTitle || url.url) {
+                        if ((urlTitle && url.url) || url.url) {
                           return (
                             <li key={Math.random()}>
                               <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
