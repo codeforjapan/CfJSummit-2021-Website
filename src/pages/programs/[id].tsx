@@ -86,7 +86,28 @@ const ProgramDetails = ({
   dayjs.locale(locale.toLowerCase())
   return (
     <>
-      <MetaHead isTop />
+      <MetaHead
+        title={title[locale] ? title[locale] : title['en'] ? title['en'] : title['ja']}
+        description={`${dayjs(date).format('MM.DD(ddd)')} ${startTime}-${endTime} | ${
+          trackName[locale]
+            ? trackName[locale]
+            : trackName['en']
+            ? trackName['en']
+            : trackName['ja']
+        } |  ${
+          description[locale]
+            ? description[locale]
+            : description['en']
+            ? description['en']
+            : description['ja']
+        }`}
+        path={
+          locale === 'ja'
+            ? `programs/${programId}`
+            : `${locale?.toLowerCase()}/programs/${programId}`
+        }
+        noindex
+      />
       <Navigation nowPage={'Programs'} />
       <main className={styles.lMain}>
         <div className={styles.timetableDetailWrapper}>

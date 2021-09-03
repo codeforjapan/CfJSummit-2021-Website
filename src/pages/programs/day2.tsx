@@ -94,7 +94,10 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
   dayjs.locale(locale ? locale.toLowerCase() : 'ja')
   return (
     <>
-      <MetaHead isTop />
+      <MetaHead
+        title={'Program Day2'}
+        path={locale === 'ja' ? 'programs/day2' : `${locale?.toLowerCase()}/programs/day2`}
+      />
       <Navigation nowPage={'Programs'} />
       <div className={styles.timetableWrapper}>
         <h2 className={styles.sectionHeading}>
