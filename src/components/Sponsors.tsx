@@ -12,6 +12,7 @@ import IntilaqLogo from '~/assets/co/INTILAQ.png'
 import UDTalkLogo from '~/assets/sp/UDTalk.png'
 import GrafferLogo from '~/assets/sp/Graffer.png'
 import InfoLoungeLogo from '~/assets/sp/InfoLounge.png'
+import UDCLogo from '~/assets/co/UDC.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -54,6 +55,9 @@ const Sponsors = () => {
         </li>
         <li>
           <Image src={IntilaqLogo} layout={'intrinsic'} alt="INTILAQ" />
+        </li>
+        <li>
+          <Image src={UDCLogo} layout={'intrinsic'} alt="UDC" />
         </li>
       </ul>
       <h2 className={styles.sponsorsHeading}>主催</h2>
