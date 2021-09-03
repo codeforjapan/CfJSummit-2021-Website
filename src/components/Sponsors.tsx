@@ -12,6 +12,7 @@ import IntilaqLogo from '~/assets/co/INTILAQ.png'
 import UDTalkLogo from '~/assets/sp/UDTalk.png'
 import GrafferLogo from '~/assets/sp/Graffer.png'
 import InfoLoungeLogo from '~/assets/sp/InfoLounge.png'
+import UDCLogo from '~/assets/co/UDC.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -55,6 +56,9 @@ const Sponsors = () => {
         <li>
           <Image src={IntilaqLogo} layout={'intrinsic'} alt="INTILAQ" />
         </li>
+        <li>
+          <Image src={UDCLogo} layout={'intrinsic'} alt="UDC" />
+        </li>
       </ul>
       <h2 className={styles.sponsorsHeading}>主催</h2>
       <ul className={styles.sponsorsLogos}>
@@ -86,10 +90,27 @@ const Sponsors = () => {
           <Image src={CfYamagata} layout={'intrinsic'} alt="Code for Yamagata" />
         </li>
       </ul>
-      {/*
       <h2 className={styles.sponsorsHeading}>後援</h2>
-      <p className={styles.sponsorsName}>場所が入ります場所が入ります</p>
-      */}
+      <ul className={styles.sponsorsLogos}>
+        <li>
+          <p className={styles.sponsorsName}>宮城県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>仙台市</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>秋田県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>岩手県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>福島県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>総務省</p>
+        </li>
+      </ul>
     </section>
   )
 }
