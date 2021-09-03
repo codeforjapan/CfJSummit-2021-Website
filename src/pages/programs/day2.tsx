@@ -234,53 +234,32 @@ const Programs: NextPage<Props> = ({ Tracks, pcTimeTable, spTimeTable }: Props) 
                           {value.trackName}
                         </th>
                         {value.programs.map((value) => {
-                          if (value.inputCompleted === '0') {
-                            return undefined //<td key={value.programId} className={styles.blank} />
-                          }
-                          if (value.category === 4) {
+                          if (value.inputCompleted === '0' || value.category === 4) {
                             return undefined
-                            /*
+                          } else {
                             return (
-                              <td key={value.programId} className={styles.color02}>
-                                <p className={styles.time}>
-                                  {value.startTime}-{value.endTime}
-                                </p>
-                                <p className={styles.boldTitle}>{value.title}</p>
-                                <div className={styles.detail}>
-                                  <p>{value.description}</p>
-                                </div>
-                                {value.presenters.map((value) => {
-                                  return (
-                                    <p key={value} className={styles.performer}>
-                                      {value}
+                              <td className={styles.color01} key={value.programId}>
+                                <Link href={`/programs/${value.programId}`}>
+                                  <a>
+                                    <p className={styles.time}>
+                                      {value.startTime}-{value.endTime}
                                     </p>
-                                  )
-                                })}
+                                    <p className={styles.boldTitle}>{value.title}</p>
+                                    <div className={styles.detail}>
+                                      <p>{value.description}</p>
+                                    </div>
+                                    {value.presenters.map((value, i) => {
+                                      return (
+                                        <p key={value + i} className={styles.performer}>
+                                          {value}
+                                        </p>
+                                      )
+                                    })}
+                                  </a>
+                                </Link>
                               </td>
-                            )*/
+                            )
                           }
-                          return (
-                            <td className={styles.color01} key={value.programId}>
-                              <Link href={`/programs/${value.programId}`}>
-                                <a>
-                                  <p className={styles.time}>
-                                    {value.startTime}-{value.endTime}
-                                  </p>
-                                  <p className={styles.boldTitle}>{value.title}</p>
-                                  <div className={styles.detail}>
-                                    <p>{value.description}</p>
-                                  </div>
-                                  {value.presenters.map((value, i) => {
-                                    return (
-                                      <p key={value + i} className={styles.performer}>
-                                        {value}
-                                      </p>
-                                    )
-                                  })}
-                                </a>
-                              </Link>
-                            </td>
-                          )
                         })}
                       </tr>
                     )
