@@ -86,10 +86,13 @@ const Sponsors = () => {
           <Image src={CfYamagata} layout={'intrinsic'} alt="Code for Yamagata" />
         </li>
       </ul>
-      {/*
       <h2 className={styles.sponsorsHeading}>後援</h2>
-      <p className={styles.sponsorsName}>場所が入ります場所が入ります</p>
-      */}
+      <p className={styles.sponsorsName}>宮城県</p>
+      <p className={styles.sponsorsName}>仙台市</p>
+      <p className={styles.sponsorsName}>秋田県</p>
+      <p className={styles.sponsorsName}>岩手県</p>
+      <p className={styles.sponsorsName}>福島県</p>
+      <p className={styles.sponsorsName}>総務省</p>
     </section>
   )
 }
