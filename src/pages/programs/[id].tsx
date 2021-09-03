@@ -88,13 +88,13 @@ const ProgramDetails = ({
     <>
       <MetaHead
         title={title[locale] ? title[locale] : title['en'] ? title['en'] : title['ja']}
-        description={`${dayjs(date).format('MM.DD(ddd)')} ${startTime}-${endTime} | ${
+        description={`${
           trackName[locale]
             ? trackName[locale]
             : trackName['en']
             ? trackName['en']
             : trackName['ja']
-        } |  ${
+        } | ${dayjs(date).format('MM.DD(ddd)')} ${startTime}-${endTime} | ${
           description[locale]
             ? description[locale]
             : description['en']
