@@ -87,12 +87,26 @@ const Sponsors = () => {
         </li>
       </ul>
       <h2 className={styles.sponsorsHeading}>後援</h2>
-      <p className={styles.sponsorsName}>宮城県</p>
-      <p className={styles.sponsorsName}>仙台市</p>
-      <p className={styles.sponsorsName}>秋田県</p>
-      <p className={styles.sponsorsName}>岩手県</p>
-      <p className={styles.sponsorsName}>福島県</p>
-      <p className={styles.sponsorsName}>総務省</p>
+      <ul className={styles.sponsorsLogos}>
+        <li>
+          <p className={styles.sponsorsName}>宮城県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>仙台市</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>秋田県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>岩手県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>福島県</p>
+        </li>
+        <li>
+          <p className={styles.sponsorsName}>総務省</p>
+        </li>
+      </ul>
     </section>
   )
 }
