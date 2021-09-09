@@ -25,7 +25,7 @@ const MetaHead: VFC<MetaHeadProps> = ({
       />
       {meta.noindex || noindex ? <meta name="robots" content="noindex" /> : undefined}
       <meta
-        property="description"
+        name="description"
         content={description ? description : getLocaleSettings(locale).siteDescription}
       />
       <meta

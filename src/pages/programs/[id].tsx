@@ -86,7 +86,28 @@ const ProgramDetails = ({
   dayjs.locale(locale.toLowerCase())
   return (
     <>
-      <MetaHead isTop />
+      <MetaHead
+        title={title[locale] ? title[locale] : title['en'] ? title['en'] : title['ja']}
+        description={`${
+          trackName[locale]
+            ? trackName[locale]
+            : trackName['en']
+            ? trackName['en']
+            : trackName['ja']
+        } | ${dayjs(date).format('MM.DD(ddd)')} ${startTime}-${endTime} | ${
+          description[locale]
+            ? description[locale]
+            : description['en']
+            ? description['en']
+            : description['ja']
+        }`}
+        path={
+          locale === 'ja'
+            ? `programs/${programId}`
+            : `${locale?.toLowerCase()}/programs/${programId}`
+        }
+        noindex
+      />
       <Navigation nowPage={'Programs'} />
       <main className={styles.lMain}>
         <div className={styles.timetableDetailWrapper}>
@@ -144,7 +165,7 @@ const ProgramDetails = ({
                   : url.title['en']
                   ? url.title['en']
                   : url.title['ja']
-                if (urlTitle || url.url) {
+                if ((urlTitle && url.url) || url.url) {
                   return (
                     <li key={Math.random()}>
                       <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
@@ -225,7 +246,7 @@ const ProgramDetails = ({
                           : url.title['en']
                           ? url.title['en']
                           : url.title['ja']
-                        if (urlTitle || url.url) {
+                        if ((urlTitle && url.url) || url.url) {
                           return (
                             <li key={Math.random()}>
                               <a href={url.url} target={'_blank'} rel={'noreferrer noopener'}>
