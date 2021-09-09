@@ -16,6 +16,7 @@ import Footer from '~/components/Footer'
 import MetaHead from '~/components/MetaHead'
 import Program from '~/components/Program'
 import Scroll from '../styles/components/Scroll.module.scss'
+import GetTogether from '~/components/GetTogether'
 
 const Home: NextPage = () => {
   return (
@@ -37,6 +38,7 @@ const Home: NextPage = () => {
         <Logo />
         <Program />
         <Ticket />
+        <GetTogether />
         <Slack />
         <CoC />
         <Accessibility />
