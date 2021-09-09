@@ -18,12 +18,14 @@ const Ticket: VFC = () => {
         乾杯酒限定でオリジナルグッズも同封していますので、楽しみにしていてください！
       </p>
       <p className={styles.sectionText}>
-        ※注文から到着まで時間がかかりますので、お早めに注文をお願いします
+        ※注文から到着まで時間がかかりますので、お早めに注文をお願いします（9/14締切）
       </p>
       <p className={styles.sectionText}>
         ※未成年の方、アルコールが苦手な方は福島県産リンゴとお酢を掛け合わせた「リンゴスター」という新感覚ドリンクをご用意しています
       </p>
-      <p className={styles.sectionText}>飲酒は20歳になってから</p>
+      <p className={styles.sectionText} style={{ textDecoration: 'underline' }}>
+        飲酒は20歳になってから
+      </p>
 
       <p className={linkStyles.button}>
         <a
