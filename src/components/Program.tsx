@@ -83,15 +83,6 @@ const Program: VFC = () => {
           <a>PROGRAMページへ</a>
         </Link>
       </p>
-      <h3 className={styles.sectionHeadingSub} style={{ marginTop: '80px' }}>
-        ENTRY
-      </h3>
-      <p className={styles.sectionText}>LTの募集を受付中です</p>
-      <p className={linkStyles.button}>
-        <a href="https://forms.gle/qHoTu8PaQhaADNLJ6" target={'_blank'} rel={'noreferrer noopener'}>
-          Entryフォームへ
-        </a>
-      </p>
     </section>
   )
 }
