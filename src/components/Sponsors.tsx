@@ -13,6 +13,9 @@ import UDTalkLogo from '~/assets/sp/UDTalk.png'
 import GrafferLogo from '~/assets/sp/Graffer.png'
 import InfoLoungeLogo from '~/assets/sp/InfoLounge.png'
 import UDCLogo from '~/assets/co/UDC.png'
+import OktaLogo from '~/assets/sp/Okta.jpg'
+import StrolyLogo from '~/assets/sp/stroly.png'
+import AutomationLogo from '~/assets/sp/Automation.png'
 import Image from 'next/image'
 
 const Sponsors = () => {
@@ -30,6 +33,14 @@ const Sponsors = () => {
       <h2 className={styles.sponsorsHeading}>メディアパートナー</h2>
       <ul className={styles.sponsorsLogos}></ul>
       */}
+      <h2 className={styles.sponsorsHeading}>特別協賛</h2>
+      <ul className={styles.sponsorsLogos}>
+        <li className={styles.spSponsors}>
+          <a href="https://www.okta.com/jp/" target="_blank" rel="noreferrer noopener">
+            <Image src={OktaLogo} layout={'intrinsic'} alt="Okta" />
+          </a>
+        </li>
+      </ul>
       <h2 className={styles.sponsorsHeading}>協賛</h2>
       <ul className={styles.sponsorsLogos}>
         <li>
@@ -45,6 +56,16 @@ const Sponsors = () => {
         <li>
           <a href="https://graffer.jp/" target="_blank" rel="noreferrer noopener">
             <Image src={GrafferLogo} layout={'intrinsic'} alt="Graffer" />
+          </a>
+        </li>
+        <li>
+          <a href="https://stroly.com/ja/" target="_blank" rel="noreferrer noopener">
+            <Image src={StrolyLogo} layout={'intrinsic'} alt="Stroly" />
+          </a>
+        </li>
+        <li>
+          <a href="https://automation.jp/" target="_blank" rel="noreferrer noopener">
+            <Image src={AutomationLogo} layout={'intrinsic'} alt="自動処理" />
           </a>
         </li>
       </ul>

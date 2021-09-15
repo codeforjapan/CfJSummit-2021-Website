@@ -76,6 +76,11 @@
 		max-width: 180px;
 		max-height: 180px;
 	}
+	.spSponsors {
+		margin: 0 40px 50px 40px;
+		max-width: 240px;
+		max-height: 240px;
+	}
 	@include mqTB {
 		max-width: 100%;
 		margin:0 auto 60px auto;
