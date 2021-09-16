@@ -165,7 +165,7 @@ const ProgramDetails = ({
                 <ul style={{ margin: '0.5rem 0' }}>
                   <li>
                     <a href={broadcastingURL} target={'_blank'} rel="noreferrer noopener">
-                      Youtube Live
+                      YouTube Live
                     </a>
                   </li>
                 </ul>
