@@ -166,6 +166,8 @@ const ProgramDetails = ({
                   <li>
                     <a href={broadcastingURL} target={'_blank'} rel="noreferrer noopener">
                       YouTube Live
+                      <br />
+                      {broadcastingURL}
                     </a>
                   </li>
                 </ul>
