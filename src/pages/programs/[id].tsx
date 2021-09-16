@@ -160,34 +160,45 @@ const ProgramDetails = ({
 
           <section className={styles.topicDetail}>
             <dl style={{ marginBottom: '30px' }}>
-              <dt>{getLocaleVocabulary(locale, 'streaming')}</dt>
-              <dd>
-                <ul style={{ margin: '0.5rem 0' }}>
-                  <li>
-                    <a href={broadcastingURL} target={'_blank'} rel="noreferrer noopener">
-                      YouTube Live
-                      <br />
-                      {broadcastingURL}
-                    </a>
-                  </li>
-                </ul>
-              </dd>
-              <dt>{getLocaleVocabulary(locale, 'livecaption')}</dt>
-              <dd>
-                <ul style={{ margin: '0.5rem 0' }}>
-                  <li>
-                    <a href={udtalkWebURL} target={'_blank'} rel="noreferrer noopener">
-                      {' '}
-                      {getLocaleVocabulary(locale, 'forweb')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href={udtalkAppURL} target={'_blank'} rel="noreferrer noopener">
-                      {getLocaleVocabulary(locale, 'forapp')}
-                    </a>
-                  </li>
-                </ul>
-              </dd>
+              {broadcastingURL ? (
+                <>
+                  <dt>{getLocaleVocabulary(locale, 'streaming')}</dt>
+                  <dd>
+                    <ul style={{ margin: '0.5rem 0' }}>
+                      <li>
+                        <a href={broadcastingURL} target={'_blank'} rel="noreferrer noopener">
+                          YouTube Live
+                          <br />
+                          {broadcastingURL}
+                        </a>
+                      </li>
+                    </ul>
+                  </dd>
+                </>
+              ) : undefined}
+              {udtalkWebURL || udtalkAppURL ? (
+                <>
+                  <dt>{getLocaleVocabulary(locale, 'livecaption')}</dt>
+                  <dd>
+                    <ul style={{ margin: '0.5rem 0' }}>
+                      {udtalkWebURL ? (
+                        <li>
+                          <a href={udtalkWebURL} target={'_blank'} rel="noreferrer noopener">
+                            {getLocaleVocabulary(locale, 'forweb')}
+                          </a>
+                        </li>
+                      ) : undefined}
+                      {udtalkAppURL ? (
+                        <li>
+                          <a href={udtalkAppURL} target={'_blank'} rel="noreferrer noopener">
+                            {getLocaleVocabulary(locale, 'forapp')}
+                          </a>
+                        </li>
+                      ) : undefined}
+                    </ul>
+                  </dd>
+                </>
+              ) : undefined}
             </dl>
             <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'overview')}</h2>
             <p>
