@@ -53,8 +53,20 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
     requestOptions
   )
   const json = await response.json()
-  const { presenters, date, description, startTime, endTime, title, trackName, urls, programId } =
-    json.data
+  const {
+    presenters,
+    date,
+    description,
+    startTime,
+    endTime,
+    title,
+    trackName,
+    urls,
+    programId,
+    udtalkWebURL,
+    udtalkAppURL,
+    broadcastingURL,
+  } = json.data
   return {
     props: {
       presenters,
@@ -66,6 +78,9 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
       trackName,
       urls,
       programId,
+      udtalkWebURL,
+      udtalkAppURL,
+      broadcastingURL,
     },
     revalidate: 60,
   }
@@ -80,6 +95,9 @@ const ProgramDetails = ({
   trackName,
   urls,
   programId,
+  udtalkWebURL,
+  udtalkAppURL,
+  broadcastingURL,
 }: any) => {
   const router = useRouter()
   const locale = router.locale ? router.locale : 'ja'
@@ -141,6 +159,34 @@ const ProgramDetails = ({
           </h1>
 
           <section className={styles.topicDetail}>
+            <dl style={{ marginBottom: '30px' }}>
+              <dt>{getLocaleVocabulary(locale, 'streaming')}</dt>
+              <dd>
+                <ul style={{ margin: '0.5rem 0' }}>
+                  <li>
+                    <a href={broadcastingURL} target={'_blank'} rel="noreferrer noopener">
+                      Youtube Live
+                    </a>
+                  </li>
+                </ul>
+              </dd>
+              <dt>{getLocaleVocabulary(locale, 'livecaption')}</dt>
+              <dd>
+                <ul style={{ margin: '0.5rem 0' }}>
+                  <li>
+                    <a href={udtalkWebURL} target={'_blank'} rel="noreferrer noopener">
+                      {' '}
+                      {getLocaleVocabulary(locale, 'forweb')}
+                    </a>
+                  </li>
+                  <li>
+                    <a href={udtalkAppURL} target={'_blank'} rel="noreferrer noopener">
+                      {getLocaleVocabulary(locale, 'forapp')}
+                    </a>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
             <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'overview')}</h2>
             <p>
               {(() => {
