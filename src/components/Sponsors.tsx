@@ -131,6 +131,9 @@ const Sponsors = () => {
         <li>
           <p className={styles.sponsorsName}>総務省</p>
         </li>
+        <li>
+          <p className={styles.sponsorsName}>経済産業省</p>
+        </li>
       </ul>
     </section>
   )
