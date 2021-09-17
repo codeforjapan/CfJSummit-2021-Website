@@ -12,8 +12,10 @@ const Accessibility: VFC = () => {
         <br />
         その他、特別な配慮が必要な方はお申し出ください。
       </p>
-      <p className={classNames(linkStyles.button, linkStyles.isComingsoon)}>
-        <a href="">Coming soon</a>
+      <p className={linkStyles.button}>
+        <a href="https://udtalk.jp/cfjsummit2021/" target={'_blank'} rel="noreferrer noopener">
+          UDトークアプリページへ
+        </a>
       </p>
     </section>
   )
