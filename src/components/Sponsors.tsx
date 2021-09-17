@@ -59,7 +59,7 @@ const Sponsors = () => {
           </a>
         </li>
         <li>
-          <a href="https://stroly.com/ja/" target="_blank" rel="noreferrer noopener">
+          <a href="https://corp.stroly.com/" target="_blank" rel="noreferrer noopener">
             <Image src={StrolyLogo} layout={'intrinsic'} alt="Stroly" />
           </a>
         </li>
