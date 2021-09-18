@@ -40,6 +40,8 @@ const SiteConfig = {
         livecaption: '字幕（UDトーク）',
         forweb: 'ブラウザで表示 ',
         forapp: 'アプリで表示',
+        graphicrecording: 'グラフィックレコーディング',
+        graphicer: 'グラフィッカー',
       },
     },
     {
@@ -60,6 +62,8 @@ const SiteConfig = {
         livecaption: 'Live Caption',
         forweb: 'For Web Browser',
         forapp: 'For App',
+        graphicrecording: 'Graphic Recording',
+        graphicer: 'Graphic artists',
       },
     },
     {
@@ -80,6 +84,8 @@ const SiteConfig = {
         livecaption: 'Live Caption',
         forweb: 'For Web Browser',
         forapp: 'For App',
+        graphicrecording: 'Graphic Recording',
+        graphicer: 'Graphic artists',
       },
     },
     {
@@ -100,6 +106,8 @@ const SiteConfig = {
         livecaption: 'Live Caption',
         forweb: 'For Web Browser',
         forapp: 'For App',
+        graphicrecording: 'Graphic Recording',
+        graphicer: 'Graphic artists',
       },
     },
   ],

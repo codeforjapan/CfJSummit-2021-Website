@@ -54,6 +54,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   )
   const json = await response.json()
   const {
+    grarecos,
     presenters,
     date,
     description,
@@ -69,6 +70,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   } = json.data
   return {
     props: {
+      grarecos,
       presenters,
       date,
       description,
@@ -86,6 +88,7 @@ export const getStaticProps = async ({ params }: GetStaticPropsContext) => {
   }
 }
 const ProgramDetails = ({
+  grarecos,
   presenters,
   date,
   description,
@@ -240,6 +243,74 @@ const ProgramDetails = ({
               })}
             </ul>
           </section>
+          {grarecos.length
+            ? grarecos.map((value: any) => {
+                return (
+                  <section
+                    key={value.grarecoId}
+                    style={{
+                      marginBottom: '2rem',
+                    }}
+                  >
+                    <h2 className={styles.topicHeading}>
+                      {getLocaleVocabulary(locale, 'graphicrecording')}
+                    </h2>
+                    <div>
+                      <Image src={value.photoURL} width={'640'} height={'427px'} />
+                    </div>
+                    <div>
+                      <p
+                        style={{
+                          fontWeight: 'bold',
+                          fontSize: '1.1rem',
+                        }}
+                      >
+                        {(() => {
+                          const descriptionlocale = value.description[locale]
+                            ? value.description[locale]
+                            : value.description['en']
+                            ? value.description['en']
+                            : value.description['ja']
+                          return descriptionlocale.split('\n').map((str: string, index: number) => {
+                            if (str) {
+                              return (
+                                <React.Fragment key={index}>
+                                  {str}
+                                  <br />
+                                </React.Fragment>
+                              )
+                            }
+                          })
+                        })()}
+                      </p>
+                      <p>
+                        {getLocaleVocabulary(locale, 'graphicer') + ' : '}
+                        {value.name[locale]
+                          ? value.name[locale]
+                          : value.name['en']
+                          ? value.name['en']
+                          : value.name['ja']}
+                        {locale === 'ja' ||
+                        (value.name[locale]
+                          ? value.name[locale]
+                          : value.name['en']
+                          ? value.name['en']
+                          : value.name['ja']) === value.name['ja']
+                          ? `（${value.name['ja_kana']}）`
+                          : undefined}
+                      </p>
+                      <p className={styles.organizationName}>
+                        {value.organization[locale]
+                          ? value.organization[locale]
+                          : value.organization['en']
+                          ? value.organization['en']
+                          : value.organization['ja']}
+                      </p>
+                    </div>
+                  </section>
+                )
+              })
+            : undefined}
           <section className={styles.topicPerformer}>
             <h2 className={styles.topicHeading}>{getLocaleVocabulary(locale, 'speakers')}</h2>
             {presenters.map((value: any) => {
