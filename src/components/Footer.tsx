@@ -19,7 +19,7 @@ const Footer = () => {
       <Link href="/analytics" passHref>
         <a className={styles.footerCopy}>Google Analyticsについて</a>
       </Link>
-      <p className={styles.footerCopy}>&copy; Code for Japan All rights reserved.</p>
+      <p className={styles.footerCopy}>&copy; 2021 Code for Japan All rights reserved.</p>
     </footer>
   )
 }
