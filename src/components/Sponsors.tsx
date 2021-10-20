@@ -68,6 +68,10 @@ const Sponsors = () => {
             <Image src={AutomationLogo} layout={'intrinsic'} alt="自動処理" />
           </a>
         </li>
+        <li>
+          <p>一般社団法人</p>
+          <p>官民共創HUB</p>
+        </li>
       </ul>
       <h2 className={styles.sponsorsHeading}>協力</h2>
       <ul className={styles.sponsorsLogos}>
